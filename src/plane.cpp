@@ -161,20 +161,26 @@ void Plane::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);
 }
 void Plane :: forward() {
-	this->position.z -= 0.1f;
+	this->position.z -= 0.5*cos(this->rotationY * M_PI / 180.0f);
+	this->position.x -= 0.5*sin(this->rotationY * M_PI / 180.0f);
+	// this->position. += 0.1;
 }
 void Plane::tick() {
-    this->position.y -= 0.05f;
+    // this->position.y -= 0.05f;
     // this->position.z -= 0.1f;
     // this->rotation += speed;
     // this->position.x -= speed;
     // this->position.y -= speed;
 }
 void Plane::tiltL() {
-    this->rotationZ += 1;
+     if (this->rotationZ < 30) {
+        this->rotationZ += 1;
+    }
 }
 void Plane::tiltR() {
-    this->rotationZ -= 1;
+   if (this->rotationZ > -30) {
+        this->rotationZ -= 1;
+    }
 }
 void Plane::rotateR() {
     if (this->rotationZ > -30) {

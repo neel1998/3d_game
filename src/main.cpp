@@ -18,6 +18,7 @@ vector < Object > objects;
 
 
 float cam_a = 0, cam_b = 4, cam_c = 10;
+float tar_a, tar_b, tar_c;
 int cam_pos = 0;
 bool cam = true;
 int cam_tick = 0;
@@ -43,7 +44,7 @@ void draw() {
 
     // eye = rotate * eye;
     // Target - Where is the camera looking at.  Don't change unless you are sure!!
-    glm::vec3 target (plane.position.x, plane.position.y, plane.position.z);
+    glm::vec3 target (tar_a, tar_b, tar_c);
     // Up - Up vector defines tilt of camera.  Don't change unless you are sure!!
     glm::vec3 up (0, 1, 0);
 
@@ -65,7 +66,7 @@ void draw() {
     plane.draw(VP);
     ground.draw(VP);
     for (int i = 0; i < objects.size(); i ++){
-    	objects[i].draw(VP);
+    	objects[i].draw(VP);	
     }
 }
 
@@ -82,24 +83,7 @@ void tick_input(GLFWwindow *window) {
     if (c && cam) {
     	cam = false;
     	cam_pos = (cam_pos + 1)%total_cam_pos;
-    	switch(cam_pos){
-    		case 0:
-    			cam_a = (plane.position.x + 10)*sin(plane.rotationY * M_PI / 180.0f);
-    			cam_c = (plane.position.z + 10)*cos(plane.rotationY * M_PI / 180.0f); 
-    			cam_b = 4;
-    			break;
-    		case 1:
-    			cam_a = 10*sin(plane.rotationY * M_PI / 180.0f);
-    			cam_c = 10*cos(plane.rotationY * M_PI / 180.0f);
-    			cam_b = 10; 
-    			break;
-    		case 2: 
-    			cam_a = 10; cam_b = 0; cam_c = 0;
-    			break;
-    		case 3: 
-    			cam_a = 1; cam_b = 20; cam_c = 0;
-    			break;
-    	}
+    	
     }
     if (left) {
       // a = 0; b = 2; c = 5;
@@ -116,26 +100,67 @@ void tick_input(GLFWwindow *window) {
     }
     if (q) {
     	plane.rotateL();
-    	cam_a = (plane.position.x + 10)*sin(plane.rotationY * M_PI / 180.0f);
-    	cam_c = (plane.position.z + 10)*cos(plane.rotationY * M_PI / 180.0f);
     }
     if (e) {
-    	cam_a = (plane.position.x + 10)*sin(plane.rotationY * M_PI / 180.0f);
-    	cam_c = (plane.position.z + 10)*cos(plane.rotationY * M_PI / 180.0f);
     	plane.rotateR();
-    	
     }
     if (space) {
     	cam_b += 0.1f;
     	plane.boost();
     }
     if (w) {
-    	// plane.forward();
-    	// cam_c += 0.1f;
+    	plane.forward();
     }
 }
 void tick_elements() {
-	cam_b -= 0.05f;
+	// cam_b -= 0.05f;
+    switch(cam_pos){
+    	case 0: //TPP
+    		tar_a = plane.position.x;
+    		tar_b = plane.position.y;
+    		tar_c = plane.position.z;
+    		cam_a = plane.position.x + 10*sin(plane.rotationY * M_PI / 180.0f);
+    		cam_c = plane.position.z + 10*cos(plane.rotationY * M_PI / 180.0f); 
+    		cam_b = plane.position.y + 4;
+    		break;
+    	case 1: //Top
+    		tar_a = plane.position.x;
+    		tar_b = plane.position.y;
+    		tar_c = plane.position.z;
+   			cam_a = plane.position.x + 10*sin(plane.rotationY * M_PI / 180.0f);
+  			cam_c = plane.position.z + 10*cos(plane.rotationY * M_PI / 180.0f); 
+  			cam_b = plane.position.y + 20;
+   			break;
+   		case 2: //FPP
+   			tar_a =  plane.position.x - 20*sin(plane.rotationY * M_PI / 180.0f);;
+    		tar_b = plane.position.y + 4;
+    		tar_c = plane.position.z - 20*cos(plane.rotationY * M_PI / 180.0f);
+
+   			cam_a = plane.position.x;
+  			cam_c = plane.position.z;
+   			cam_b = plane.position.y + 4;
+   			break;
+   		case 3: //TOWER	
+
+   			tar_a = plane.position.x;
+    		tar_c = plane.position.z;
+    		tar_b = plane.position.y;
+
+   			cam_a = 10;
+   			cam_b = 10;
+  			cam_c = 10;
+    		// 	cam_a = 10; cam_b = 0; cam_c = 0;
+    		// 	break;
+    		// case 3: 
+    		// 	cam_a = 1; cam_b = 20; cam_c = 0;
+    		// 	break;
+    }
+
+	if (plane.position.y <= -30) {
+		printf("Crashed\n");
+		quit(window);
+	}
+
 	cam_tick ++;
 	if (cam_tick >= 50) {
 		cam_tick = 0;
@@ -151,12 +176,14 @@ void tick_elements() {
 void initGL(GLFWwindow *window, int width, int height) {
     /* Objects should be created before any other gl function and shaders */
     // Create the models
-
+	tar_a = plane.position.x;
+    tar_b = plane.position.y;
+    tar_c = plane.position.z;
     plane = Plane(0, 0, 0, COLOR_RED);
     ground = Ground(0, 0, COLOR_GROUND);
 
     for (int i = 0; i < 500; i ++){
-    	objects.push_back(Object( 0, 0, COLOR_RED));
+    	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_RED));
     }	
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");

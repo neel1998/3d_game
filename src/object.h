@@ -7,7 +7,7 @@
 class Object {
 public:
     Object() {}
-    Object(float x, float y, color_t color);
+    Object(float x, float y, float z, color_t color);
     glm::vec3 position;
     float rotation;
     void draw(glm::mat4 VP);
