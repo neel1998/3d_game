@@ -1,8 +1,8 @@
 #include "plane.h"
 #include "main.h"
 
-Plane::Plane(float x, float y, color_t color) {
-    this->position = glm::vec3(x, y, 0);
+Plane::Plane(float x, float y, float z, color_t color) {
+    this->position = glm::vec3(x, y, z);
     this->rotationX = 0;
     this->rotationY = 0;
     this->rotationZ = 0;
@@ -160,9 +160,12 @@ void Plane::draw(glm::mat4 VP) {
 void Plane::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);
 }
-
+void Plane :: forward() {
+	this->position.z -= 0.1f;
+}
 void Plane::tick() {
-    // this->position.y -= 0.1f;
+    this->position.y -= 0.05f;
+    // this->position.z -= 0.1f;
     // this->rotation += speed;
     // this->position.x -= speed;
     // this->position.y -= speed;
@@ -184,4 +187,7 @@ void Plane::rotateL() {
         this->rotationZ += 1;
     }
     this->rotationY += 0.5f;
+}
+void Plane::boost() {
+	this->position.y += 0.1f;
 }

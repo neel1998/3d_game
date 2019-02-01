@@ -5,16 +5,19 @@ Object::Object(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
     this->rotation = 0;
     speed = 1;
+
+    int z = rand()%1000 - 500;
+    int xx = rand()%1000 - 500;
     // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
     // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
     float depth = -30.0f;
     GLfloat vertex_buffer_data[] = {
-        -2.0f, depth, 2.0f - 40,
-        2.0f, depth, 2.0f - 40,
-        -2.0f, depth, -2.0f - 40,
-        2.0f, depth, 2.0f - 40,
-        -2.0f, depth, -2.0f - 40,
-        2.0f, depth, -2.0f - 40,
+        -2.0f + xx, depth, 2.0f + z,
+        2.0f + xx, depth, 2.0f + z,
+        -2.0f + xx, depth, -2.0f + z,
+        2.0f + xx, depth, 2.0f + z,
+        -2.0f + xx, depth, -2.0f + z,
+        2.0f + xx, depth, -2.0f + z,
     }; 
     
     this->object = create3DObject(GL_TRIANGLES, 6, vertex_buffer_data, color, GL_FILL);

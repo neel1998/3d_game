@@ -7,7 +7,7 @@
 class Plane {
 public:
     Plane() {}
-    Plane(float x, float y, color_t color);
+    Plane(float x, float y, float z, color_t color);
     glm::vec3 position;
     float rotationX;
     float rotationY;
@@ -15,6 +15,8 @@ public:
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
     void tick();
+    void boost();
+    void forward();
     void tiltL();
     void tiltR();
     void rotateR();

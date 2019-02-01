@@ -14,7 +14,7 @@ GLFWwindow *window;
 **************************/
 Plane plane;
 Ground ground;
-Object object;
+vector < Object > objects;
 
 
 float cam_a = 0, cam_b = 4, cam_c = 10;
@@ -43,7 +43,7 @@ void draw() {
 
     // eye = rotate * eye;
     // Target - Where is the camera looking at.  Don't change unless you are sure!!
-    glm::vec3 target (0, 0, 0);
+    glm::vec3 target (plane.position.x, plane.position.y, plane.position.z);
     // Up - Up vector defines tilt of camera.  Don't change unless you are sure!!
     glm::vec3 up (0, 1, 0);
 
@@ -64,7 +64,9 @@ void draw() {
     // Scene render
     plane.draw(VP);
     ground.draw(VP);
-    object.draw(VP);
+    for (int i = 0; i < objects.size(); i ++){
+    	objects[i].draw(VP);
+    }
 }
 
 void tick_input(GLFWwindow *window) {
@@ -74,15 +76,16 @@ void tick_input(GLFWwindow *window) {
     int d = glfwGetKey(window, GLFW_KEY_D);
     int q = glfwGetKey(window, GLFW_KEY_Q);
     int e = glfwGetKey(window, GLFW_KEY_E);
-
+    int w = glfwGetKey(window, GLFW_KEY_W);
+    int space = glfwGetKey(window, GLFW_KEY_SPACE);
     int c = glfwGetKey(window, GLFW_KEY_C);
     if (c && cam) {
     	cam = false;
     	cam_pos = (cam_pos + 1)%total_cam_pos;
     	switch(cam_pos){
     		case 0:
-    			cam_a = 10*sin(plane.rotationY * M_PI / 180.0f);
-    			cam_c = 10*cos(plane.rotationY * M_PI / 180.0f); 
+    			cam_a = (plane.position.x + 10)*sin(plane.rotationY * M_PI / 180.0f);
+    			cam_c = (plane.position.z + 10)*cos(plane.rotationY * M_PI / 180.0f); 
     			cam_b = 4;
     			break;
     		case 1:
@@ -113,22 +116,32 @@ void tick_input(GLFWwindow *window) {
     }
     if (q) {
     	plane.rotateL();
-    	cam_a = 10*sin(plane.rotationY * M_PI / 180.0f);
-    	cam_c = 10*cos(plane.rotationY * M_PI / 180.0f);
+    	cam_a = (plane.position.x + 10)*sin(plane.rotationY * M_PI / 180.0f);
+    	cam_c = (plane.position.z + 10)*cos(plane.rotationY * M_PI / 180.0f);
     }
     if (e) {
-    	cam_a = 10*sin(plane.rotationY * M_PI / 180.0f);
-    	cam_c = 10*cos(plane.rotationY * M_PI / 180.0f);
+    	cam_a = (plane.position.x + 10)*sin(plane.rotationY * M_PI / 180.0f);
+    	cam_c = (plane.position.z + 10)*cos(plane.rotationY * M_PI / 180.0f);
     	plane.rotateR();
     	
     }
+    if (space) {
+    	cam_b += 0.1f;
+    	plane.boost();
+    }
+    if (w) {
+    	// plane.forward();
+    	// cam_c += 0.1f;
+    }
 }
 void tick_elements() {
+	cam_b -= 0.05f;
 	cam_tick ++;
 	if (cam_tick >= 50) {
 		cam_tick = 0;
 		cam = true;
 	}
+	// cam_b -= 0.01f;
     plane.tick();
     camera_rotation_angle += 1;
 }
@@ -139,9 +152,12 @@ void initGL(GLFWwindow *window, int width, int height) {
     /* Objects should be created before any other gl function and shaders */
     // Create the models
 
-    plane = Plane(0, 0, COLOR_RED);
+    plane = Plane(0, 0, 0, COLOR_RED);
     ground = Ground(0, 0, COLOR_GROUND);
-    object = Object(0, 0, COLOR_RED);
+
+    for (int i = 0; i < 500; i ++){
+    	objects.push_back(Object( 0, 0, COLOR_RED));
+    }	
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
