@@ -3,6 +3,10 @@
 #include "plane.h"
 #include "ground.h"
 #include "object.h"
+#include "fan.h"
+#include "missile.h"
+#include "altMeter.h"
+#include "indicator.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -14,8 +18,13 @@ GLFWwindow *window;
 **************************/
 Plane plane;
 Ground ground;
+AltMeter altMeter1, altMeter2, altMeter3;
+Indicator indi1, indi2, indi3; 
 vector < Object > objects;
-
+vector < Missile > missiles;
+bool isMissile = false;
+int missileTick = 0;
+// Fan fan;
 
 float cam_a = 0, cam_b = 4, cam_c = 10;
 float tar_a, tar_b, tar_c;
@@ -31,6 +40,7 @@ Timer t60(1.0 / 60);
 /* Render the scene with openGL */
 /* Edit this function according to your assignment */
 void draw() {
+	
     // clear the color and depth in the frame buffer
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -38,6 +48,21 @@ void draw() {
     // Don't change unless you know what you are doing
     glUseProgram (programID);
 
+
+    glm::vec3 eye1 ( 0, 0, 10);
+
+    glm::vec3 target1 (0, 0, 0);
+    glm::vec3 up1 (0, 1, 0);
+
+    // Compute Camera matrix (view)
+    Matrices.view = glm::lookAt( eye1, target1, up1 );
+    glm::mat4 VP2 = Matrices.projection * Matrices.view;
+    altMeter1.draw(VP2);
+    altMeter2.draw(VP2);
+    altMeter3.draw(VP2);
+    indi1.draw(VP2);
+    indi2.draw(VP2);
+    indi3.draw(VP2);
 
     // Eye - Location of camera. Don't change unless you are sure!!
     glm::vec3 eye ( cam_a, cam_b, cam_c );
@@ -49,7 +74,11 @@ void draw() {
     glm::vec3 up (0, 1, 0);
 
     // Compute Camera matrix (view)
-    Matrices.view = glm::lookAt( eye, target, up ); // Rotating Camera for 3D
+    Matrices.view = glm::lookAt( eye, target, up );
+
+
+  
+     // Rotating Camera for 3D
     // Don't change unless you are sure!!
     // Matrices.view = glm::lookAt(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // Fixed camera for 2D (ortho) in XY plane
 
@@ -65,9 +94,14 @@ void draw() {
     // Scene render
     plane.draw(VP);
     ground.draw(VP);
+    // fan.draw(VP);
     for (int i = 0; i < objects.size(); i ++){
     	objects[i].draw(VP);	
     }
+    for (int i = 0; i < missiles.size(); i ++){
+    	missiles[i].draw(VP);
+    }
+
 }
 
 void tick_input(GLFWwindow *window) {
@@ -80,6 +114,15 @@ void tick_input(GLFWwindow *window) {
     int w = glfwGetKey(window, GLFW_KEY_W);
     int space = glfwGetKey(window, GLFW_KEY_SPACE);
     int c = glfwGetKey(window, GLFW_KEY_C);
+    int m = glfwGetKey(window, GLFW_KEY_M);
+    if (m && !isMissile) {
+    	Missile missile = Missile(plane.position.x, plane.position.y, plane.position.z, COLOR_YELLOW);
+    	missile.rotationX = plane.rotationX;
+    	missile.rotationY = plane.rotationY;
+    	missile.rotationZ = plane.rotationZ;
+    	missiles.push_back(missile);
+    	isMissile = true;
+    }
     if (c && cam) {
     	cam = false;
     	cam_pos = (cam_pos + 1)%total_cam_pos;
@@ -94,26 +137,45 @@ void tick_input(GLFWwindow *window) {
     }
     if (a) {
     	plane.tiltL();
+    	// fan.tiltL();
     }
     if (d) {
     	plane.tiltR();
+    	// fan.tiltR();
     }
     if (q) {
     	plane.rotateL();
+    	// fan.rotateL();
     }
     if (e) {
     	plane.rotateR();
+    	// fan.rotateR();
     }
     if (space) {
-    	cam_b += 0.1f;
-    	plane.boost();
+    	if (plane.position.y <= 30){
+    		cam_b += 0.1f;
+    		plane.boost();
+    	}
+    	if (indi2.position.x + 0.0084f <= -0.5f){
+    		indi2.position.x += 0.0084f;
+    	}
+    	// fan.boost();
     }
     if (w) {
     	plane.forward();
+    	// fan.forward();
     }
 }
 void tick_elements() {
-	// cam_b -= 0.05f;
+
+	cam_b -= 0.05f;
+	indi2.position.x -= 0.00416f;
+	indi1.position.x -= 0.00416f;
+	if ( indi1.position.x <= -5.5) {
+		// printf("Out of Fuel\n");
+		// quit(window);
+	}
+    plane.tick();
     switch(cam_pos){
     	case 0: //TPP
     		tar_a = plane.position.x;
@@ -166,8 +228,18 @@ void tick_elements() {
 		cam_tick = 0;
 		cam = true;
 	}
-	// cam_b -= 0.01f;
-    plane.tick();
+	missileTick ++;
+	if (missileTick >= 50) {
+		missileTick = 0;
+		isMissile = false;
+	}
+    for (int i = 0; i < missiles.size(); i++) {
+    	missiles[i].forward();
+    	if (missiles[i].position.z > 1000 || missiles[i].position.z < -1000) {
+    		missiles.erase(missiles.begin() + i);	
+    	}
+    }
+    // fan.tick();
     camera_rotation_angle += 1;
 }
 
@@ -181,7 +253,14 @@ void initGL(GLFWwindow *window, int width, int height) {
     tar_c = plane.position.z;
     plane = Plane(0, 0, 0, COLOR_RED);
     ground = Ground(0, 0, COLOR_GROUND);
+    altMeter1 = AltMeter(-5.5f, 5.5f, 0, COLOR_RED);
+    altMeter2 = AltMeter(-5.5f, 5, 0, COLOR_GREEN);
+    altMeter3 = AltMeter(-5.5f, 4.5f, 0, COLOR_YELLOW);
 
+    indi1 = Indicator(-0.5f, 5.4f, 0, COLOR_BLACK); //fuel
+    indi2 = Indicator(-3, 4.9f, 0, COLOR_BLACK); //alt
+    indi3 = Indicator(-0.5f, 4.4f, 0, COLOR_BLACK); //speed
+    // fan = Fan(0 ,0 , -2.0f, COLOR_BLACK);
     for (int i = 0; i < 500; i ++){
     	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_RED));
     }	

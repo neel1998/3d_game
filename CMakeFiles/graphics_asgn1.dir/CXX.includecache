@@ -6,21 +6,51 @@
 
 #IncludeRegexTransform: 
 
-/home/neel/IIIT/graphics/3d_game/src/color.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.cpp
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+altMeter.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.h
 
-/home/neel/IIIT/graphics/3d_game/src/ground.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/color.cpp
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/fan.cpp
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+fan.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/fan.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/fan.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/ground.cpp
 ground.h
-/home/neel/IIIT/graphics/3d_game/src/ground.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/ground.h
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/ground.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/ground.h
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/input.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/indicator.cpp
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+indicator.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/indicator.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/indicator.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/input.cpp
 iostream
 -
 cmath
@@ -40,21 +70,29 @@ glm/gtx/transform.hpp
 glm/gtc/matrix_transform.hpp
 -
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/main.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.cpp
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 timer.h
-/home/neel/IIIT/graphics/3d_game/src/timer.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/timer.h
 plane.h
-/home/neel/IIIT/graphics/3d_game/src/plane.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/plane.h
 ground.h
-/home/neel/IIIT/graphics/3d_game/src/ground.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/ground.h
 object.h
-/home/neel/IIIT/graphics/3d_game/src/object.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/object.h
+fan.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/fan.h
+missile.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/missile.h
+altMeter.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.h
+indicator.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/indicator.h
 
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 iostream
 -
 cmath
@@ -74,7 +112,17 @@ glm/gtx/transform.hpp
 glm/gtc/matrix_transform.hpp
 -
 
-/home/neel/IIIT/graphics/3d_game/src/nonedit.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/missile.cpp
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+missile.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/missile.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/missile.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/nonedit.cpp
 iostream
 -
 cmath
@@ -94,19 +142,19 @@ glm/gtx/transform.hpp
 glm/gtc/matrix_transform.hpp
 -
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/object.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/object.cpp
 object.h
-/home/neel/IIIT/graphics/3d_game/src/object.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/object.h
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/object.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/object.h
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/other_handlers.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/other_handlers.cpp
 iostream
 -
 cmath
@@ -126,23 +174,23 @@ glm/gtx/transform.hpp
 glm/gtc/matrix_transform.hpp
 -
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/plane.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp
 plane.h
-/home/neel/IIIT/graphics/3d_game/src/plane.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/plane.h
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/plane.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/plane.h
 main.h
-/home/neel/IIIT/graphics/3d_game/src/main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
-/home/neel/IIIT/graphics/3d_game/src/timer.cpp
+/home/neel/IIIT/2-2/graphics/3d_game/src/timer.cpp
 timer.h
-/home/neel/IIIT/graphics/3d_game/src/timer.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/timer.h
 GLFW/glfw3.h
 -
 
-/home/neel/IIIT/graphics/3d_game/src/timer.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/timer.h
 

@@ -1,27 +1,26 @@
 #include "main.h"
 
-#ifndef PLANE_H
-#define PLANE_H
+#ifndef MISSILE_H
+#define MISSILE_H
 
 
-class Plane {
+class Missile {
 public:
-    Plane() {}
-    Plane(float x, float y, float z, color_t color);
+    Missile() {}
+    Missile(float x, float y, float z, color_t color);
     glm::vec3 position;
     float rotationX;
     float rotationY;
     float rotationZ;
-    float rotationFan;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
     void tick();
-    void boost();
     void forward();
     void tiltL();
     void tiltR();
     void rotateR();
     void rotateL();
+    void boost();
     double speed;
 private:
     VAO *object;

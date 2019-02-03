@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/neel/IIIT/graphics/3d_game
+CMAKE_SOURCE_DIR = /home/neel/IIIT/2-2/graphics/3d_game
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/neel/IIIT/graphics/3d_game
+CMAKE_BINARY_DIR = /home/neel/IIIT/2-2/graphics/3d_game
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/neel/IIIT/graphics/3d_game/CMakeFiles /home/neel/IIIT/graphics/3d_game/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles /home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/neel/IIIT/graphics/3d_game/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ graphics_asgn1/fast:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/build
 .PHONY : graphics_asgn1/fast
 
+src/altMeter.o: src/altMeter.cpp.o
+
+.PHONY : src/altMeter.o
+
+# target to build an object file
+src/altMeter.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o
+.PHONY : src/altMeter.cpp.o
+
+src/altMeter.i: src/altMeter.cpp.i
+
+.PHONY : src/altMeter.i
+
+# target to preprocess a source file
+src/altMeter.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.i
+.PHONY : src/altMeter.cpp.i
+
+src/altMeter.s: src/altMeter.cpp.s
+
+.PHONY : src/altMeter.s
+
+# target to generate assembly for a file
+src/altMeter.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.s
+.PHONY : src/altMeter.cpp.s
+
 src/color.o: src/color.cpp.o
 
 .PHONY : src/color.o
@@ -150,6 +177,33 @@ src/color.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/color.cpp.s
 .PHONY : src/color.cpp.s
 
+src/fan.o: src/fan.cpp.o
+
+.PHONY : src/fan.o
+
+# target to build an object file
+src/fan.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o
+.PHONY : src/fan.cpp.o
+
+src/fan.i: src/fan.cpp.i
+
+.PHONY : src/fan.i
+
+# target to preprocess a source file
+src/fan.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fan.cpp.i
+.PHONY : src/fan.cpp.i
+
+src/fan.s: src/fan.cpp.s
+
+.PHONY : src/fan.s
+
+# target to generate assembly for a file
+src/fan.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fan.cpp.s
+.PHONY : src/fan.cpp.s
+
 src/ground.o: src/ground.cpp.o
 
 .PHONY : src/ground.o
@@ -176,6 +230,33 @@ src/ground.s: src/ground.cpp.s
 src/ground.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ground.cpp.s
 .PHONY : src/ground.cpp.s
+
+src/indicator.o: src/indicator.cpp.o
+
+.PHONY : src/indicator.o
+
+# target to build an object file
+src/indicator.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o
+.PHONY : src/indicator.cpp.o
+
+src/indicator.i: src/indicator.cpp.i
+
+.PHONY : src/indicator.i
+
+# target to preprocess a source file
+src/indicator.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.i
+.PHONY : src/indicator.cpp.i
+
+src/indicator.s: src/indicator.cpp.s
+
+.PHONY : src/indicator.s
+
+# target to generate assembly for a file
+src/indicator.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.s
+.PHONY : src/indicator.cpp.s
 
 src/input.o: src/input.cpp.o
 
@@ -230,6 +311,33 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/missile.o: src/missile.cpp.o
+
+.PHONY : src/missile.o
+
+# target to build an object file
+src/missile.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o
+.PHONY : src/missile.cpp.o
+
+src/missile.i: src/missile.cpp.i
+
+.PHONY : src/missile.i
+
+# target to preprocess a source file
+src/missile.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/missile.cpp.i
+.PHONY : src/missile.cpp.i
+
+src/missile.s: src/missile.cpp.s
+
+.PHONY : src/missile.s
+
+# target to generate assembly for a file
+src/missile.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/missile.cpp.s
+.PHONY : src/missile.cpp.s
 
 src/nonedit.o: src/nonedit.cpp.o
 
@@ -375,18 +483,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... graphics_asgn1"
+	@echo "... src/altMeter.o"
+	@echo "... src/altMeter.i"
+	@echo "... src/altMeter.s"
 	@echo "... src/color.o"
 	@echo "... src/color.i"
 	@echo "... src/color.s"
+	@echo "... src/fan.o"
+	@echo "... src/fan.i"
+	@echo "... src/fan.s"
 	@echo "... src/ground.o"
 	@echo "... src/ground.i"
 	@echo "... src/ground.s"
+	@echo "... src/indicator.o"
+	@echo "... src/indicator.i"
+	@echo "... src/indicator.s"
 	@echo "... src/input.o"
 	@echo "... src/input.i"
 	@echo "... src/input.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/missile.o"
+	@echo "... src/missile.i"
+	@echo "... src/missile.s"
 	@echo "... src/nonedit.o"
 	@echo "... src/nonedit.i"
 	@echo "... src/nonedit.s"

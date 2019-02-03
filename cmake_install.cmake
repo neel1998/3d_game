@@ -1,4 +1,4 @@
-# Install script for directory: /home/neel/IIIT/graphics/3d_game
+# Install script for directory: /home/neel/IIIT/2-2/graphics/3d_game
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/neel/IIIT/graphics/3d_game/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/neel/IIIT/2-2/graphics/3d_game/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

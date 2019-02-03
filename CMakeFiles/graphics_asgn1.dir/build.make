@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/neel/IIIT/graphics/3d_game
+CMAKE_SOURCE_DIR = /home/neel/IIIT/2-2/graphics/3d_game
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/neel/IIIT/graphics/3d_game
+CMAKE_BINARY_DIR = /home/neel/IIIT/2-2/graphics/3d_game
 
 # Include any dependencies generated for this target.
 include CMakeFiles/graphics_asgn1.dir/depend.make
@@ -57,18 +57,42 @@ include CMakeFiles/graphics_asgn1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/graphics_asgn1.dir/flags.make
 
+CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o: src/fan.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/fan.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/fan.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/fan.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/fan.cpp > CMakeFiles/graphics_asgn1.dir/src/fan.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/fan.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/fan.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/fan.cpp -o CMakeFiles/graphics_asgn1.dir/src/fan.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/main.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/main.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/main.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/main.cpp > CMakeFiles/graphics_asgn1.dir/src/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/main.cpp > CMakeFiles/graphics_asgn1.dir/src/main.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/main.cpp -o CMakeFiles/graphics_asgn1.dir/src/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/main.cpp -o CMakeFiles/graphics_asgn1.dir/src/main.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o.requires:
 
@@ -83,16 +107,16 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o.provides.build: CMakeFiles/graphics
 
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: src/color.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/color.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/color.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/color.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/color.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/color.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/color.cpp > CMakeFiles/graphics_asgn1.dir/src/color.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/color.cpp > CMakeFiles/graphics_asgn1.dir/src/color.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/color.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/color.cpp -o CMakeFiles/graphics_asgn1.dir/src/color.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/color.cpp -o CMakeFiles/graphics_asgn1.dir/src/color.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o.requires:
 
@@ -105,18 +129,42 @@ CMakeFiles/graphics_asgn1.dir/src/color.cpp.o.provides: CMakeFiles/graphics_asgn
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/color.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: src/indicator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/indicator.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/indicator.cpp > CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/indicator.cpp -o CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: src/nonedit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/nonedit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/nonedit.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/nonedit.cpp > CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/nonedit.cpp > CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/nonedit.cpp -o CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/nonedit.cpp -o CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o.requires:
 
@@ -131,16 +179,16 @@ CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o.provides.build: CMakeFiles/graph
 
 CMakeFiles/graphics_asgn1.dir/src/object.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/object.cpp.o: src/object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/object.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/object.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/object.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/object.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/object.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/object.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/object.cpp > CMakeFiles/graphics_asgn1.dir/src/object.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/object.cpp > CMakeFiles/graphics_asgn1.dir/src/object.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/object.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/object.cpp -o CMakeFiles/graphics_asgn1.dir/src/object.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/object.cpp -o CMakeFiles/graphics_asgn1.dir/src/object.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/object.cpp.o.requires:
 
@@ -153,18 +201,42 @@ CMakeFiles/graphics_asgn1.dir/src/object.cpp.o.provides: CMakeFiles/graphics_asg
 CMakeFiles/graphics_asgn1.dir/src/object.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/object.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o: src/missile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/missile.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/missile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/missile.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/missile.cpp > CMakeFiles/graphics_asgn1.dir/src/missile.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/missile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/missile.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/missile.cpp -o CMakeFiles/graphics_asgn1.dir/src/missile.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o: src/other_handlers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/other_handlers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/other_handlers.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/other_handlers.cpp > CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/other_handlers.cpp > CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/other_handlers.cpp -o CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/other_handlers.cpp -o CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o.requires:
 
@@ -179,16 +251,16 @@ CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o: src/plane.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/plane.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/plane.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/plane.cpp > CMakeFiles/graphics_asgn1.dir/src/plane.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp > CMakeFiles/graphics_asgn1.dir/src/plane.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/plane.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/plane.cpp -o CMakeFiles/graphics_asgn1.dir/src/plane.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp -o CMakeFiles/graphics_asgn1.dir/src/plane.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o.requires:
 
@@ -201,18 +273,42 @@ CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o.provides: CMakeFiles/graphics_asgn
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o: src/altMeter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.cpp > CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.cpp -o CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: src/timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/timer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/timer.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/timer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/timer.cpp > CMakeFiles/graphics_asgn1.dir/src/timer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/timer.cpp > CMakeFiles/graphics_asgn1.dir/src/timer.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/timer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/timer.cpp -o CMakeFiles/graphics_asgn1.dir/src/timer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/timer.cpp -o CMakeFiles/graphics_asgn1.dir/src/timer.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o.requires:
 
@@ -227,16 +323,16 @@ CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: src/input.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/input.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/input.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/input.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/input.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/input.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/input.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/input.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/input.cpp > CMakeFiles/graphics_asgn1.dir/src/input.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/input.cpp > CMakeFiles/graphics_asgn1.dir/src/input.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/input.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/input.cpp -o CMakeFiles/graphics_asgn1.dir/src/input.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/input.cpp -o CMakeFiles/graphics_asgn1.dir/src/input.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o.requires:
 
@@ -251,16 +347,16 @@ CMakeFiles/graphics_asgn1.dir/src/input.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o: src/ground.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o -c /home/neel/IIIT/graphics/3d_game/src/ground.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o -c /home/neel/IIIT/2-2/graphics/3d_game/src/ground.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/ground.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/ground.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/graphics/3d_game/src/ground.cpp > CMakeFiles/graphics_asgn1.dir/src/ground.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neel/IIIT/2-2/graphics/3d_game/src/ground.cpp > CMakeFiles/graphics_asgn1.dir/src/ground.cpp.i
 
 CMakeFiles/graphics_asgn1.dir/src/ground.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/ground.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/graphics/3d_game/src/ground.cpp -o CMakeFiles/graphics_asgn1.dir/src/ground.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neel/IIIT/2-2/graphics/3d_game/src/ground.cpp -o CMakeFiles/graphics_asgn1.dir/src/ground.cpp.s
 
 CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o.requires:
 
@@ -275,12 +371,16 @@ CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o.provides.build: CMakeFiles/graphi
 
 # Object files for target graphics_asgn1
 graphics_asgn1_OBJECTS = \
+"CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/main.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/color.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/object.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/input.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o"
@@ -288,18 +388,22 @@ graphics_asgn1_OBJECTS = \
 # External object files for target graphics_asgn1
 graphics_asgn1_EXTERNAL_OBJECTS =
 
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/color.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/object.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/input.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/build.make
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/neel/IIIT/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable graphics_asgn1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable graphics_asgn1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graphics_asgn1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -307,12 +411,16 @@ CMakeFiles/graphics_asgn1.dir/build: graphics_asgn1
 
 .PHONY : CMakeFiles/graphics_asgn1.dir/build
 
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/main.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/color.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/object.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/input.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/ground.cpp.o.requires
@@ -324,6 +432,6 @@ CMakeFiles/graphics_asgn1.dir/clean:
 .PHONY : CMakeFiles/graphics_asgn1.dir/clean
 
 CMakeFiles/graphics_asgn1.dir/depend:
-	cd /home/neel/IIIT/graphics/3d_game && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/neel/IIIT/graphics/3d_game /home/neel/IIIT/graphics/3d_game /home/neel/IIIT/graphics/3d_game /home/neel/IIIT/graphics/3d_game /home/neel/IIIT/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/neel/IIIT/2-2/graphics/3d_game && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/neel/IIIT/2-2/graphics/3d_game /home/neel/IIIT/2-2/graphics/3d_game /home/neel/IIIT/2-2/graphics/3d_game /home/neel/IIIT/2-2/graphics/3d_game /home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/graphics_asgn1.dir/depend
 

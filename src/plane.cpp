@@ -137,6 +137,7 @@ Plane::Plane(float x, float y, float z, color_t color) {
     vertex_buffer_data[j++] = 2;
     vertex_buffer_data[j++] = length ;
 
+
     total += 15;
     this->object = create3DObject(GL_TRIANGLES, total, vertex_buffer_data, colors, GL_FILL);
 }
@@ -166,7 +167,7 @@ void Plane :: forward() {
 	// this->position. += 0.1;
 }
 void Plane::tick() {
-    // this->position.y -= 0.05f;
+    this->position.y -= 0.05f;
     // this->position.z -= 0.1f;
     // this->rotation += speed;
     // this->position.x -= speed;
