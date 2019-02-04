@@ -9,3 +9,6 @@ const color_t COLOR_YELLOW = { 255, 255, 0 };
 const color_t COLOR_RING = { 255, 0, 0 };
 const color_t COLOR_BOMB = { 255, 150, 0 };
 const color_t COLOR_FUEL = { 0, 255, 150 };
+const color_t COLOR_ISLAND = { 117, 64, 3 };
+const color_t COLOR_BULLET = { 91, 11, 147};
+

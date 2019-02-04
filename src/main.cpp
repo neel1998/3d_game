@@ -10,6 +10,9 @@
 #include "ring.h"
 #include "bomb.h"
 #include "fuel.h"
+#include "checkpoint.h"
+#include "enemy.h"
+#include "bullet.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -28,10 +31,17 @@ vector < Missile > missiles;
 vector < Bomb > bombs;
 vector < Ring > rings;
 vector < Fuel > fuels;
+vector < Bullet > bullets;
+
+Checkpoint checkpoint;
+Enemy enemy;
+
+int cur_cp = 0;
 bool isMissile = false;
 bool isBomb = false;
+bool isBullet = false;
 int missileTick = 0;
-
+int bulletTick = 0;
 
 
 // Fan fan;
@@ -104,6 +114,8 @@ void draw() {
     // Scene render
     plane.draw(VP);
     ground.draw(VP);
+    checkpoint.draw(VP);
+    enemy.draw(VP);
     // fan.draw(VP);
     for (int i = 0; i < objects.size(); i ++){
     	objects[i].draw(VP);	
@@ -119,6 +131,9 @@ void draw() {
     }
     for (int i = 0; i < fuels.size(); i++) {
     	fuels[i].draw(VP);
+    }
+    for (int i = 0; i < bullets.size(); i++) {
+    	bullets[i].draw(VP);
     }
 }
 
@@ -196,18 +211,30 @@ void tick_input(GLFWwindow *window) {
 }
 void tick_elements() {
 
+	printf("%d\n",(int)bullets.size() );
+
+	if (!isBullet) {
+		isBullet = true;
+		Bullet bullet = Bullet(enemy.position.x, enemy.position.y, enemy.position.z, plane.position.x, plane.position.y, plane.position.z, COLOR_BULLET);
+
+		bullet.angle1 = enemy.position.x - plane.position.x;
+		bullet.angle2 = enemy.position.y - plane.position.y;
+		bullet.angle3 = enemy.position.z - plane.position.z;
+		bullets.push_back(bullet);
+	}
+	
 	cam_b -= 0.05f;
 	indi2.position.x -= 0.00416f;
-	indi1.position.x -= 0.00416f;
+	// indi1.position.x -= 0.00416f;
 	if ( indi1.position.x <= -5.5) {
-		printf("Out of Fuel\n");
-		quit(window);
+		// printf("Out of Fuel\n");
+		// quit(window);
 	}
     plane.tick();
     switch(cam_pos){
     	case 0: //TPP
     		tar_a = plane.position.x;
-    		tar_b = plane.position.y;
+    		tar_b = plane.position.y + 2;
     		tar_c = plane.position.z;
     		cam_a = plane.position.x + 10*sin(plane.rotationY * M_PI / 180.0f);
     		cam_c = plane.position.z + 10*cos(plane.rotationY * M_PI / 180.0f); 
@@ -242,8 +269,8 @@ void tick_elements() {
     }
 
 	if (plane.position.y <= -30) {
-		printf("Crashed\n");
-		quit(window);
+		// printf("Crashed\n");
+		// quit(window);
 	}
 
 	cam_tick ++;
@@ -257,15 +284,31 @@ void tick_elements() {
 		isMissile = false;
 		isBomb = false;
 	}
+	bulletTick ++;
+	if (bulletTick >= 100) {
+		isBullet = false;
+		bulletTick = 0;
+	}
     for (int i = 0; i < missiles.size(); i++) {
     	missiles[i].forward();
-    	if (missiles[i].position.z > 1000 || missiles[i].position.z < -1000) {
+    	if ( (pow( (missiles[i].position.x - objects[cur_cp].position.x), 2 ) + pow( (missiles[i].position.z - objects[cur_cp].position.z), 2 ) <= 45 ) &&  abs(objects[cur_cp].position.y - missiles[i].position.y) <=  3 ) {
+    		objects.erase(objects.begin() + cur_cp);
+    		cur_cp ++;
+    		missiles.erase(missiles.begin() + i);	
+    	}
+ 
+    	else if (missiles[i].position.z > 1000 || missiles[i].position.z < -1000) {
     		missiles.erase(missiles.begin() + i);	
     	}
     }
     for (int i = 0; i < bombs.size(); i++) {
     	bombs[i].forward();
-    	if (bombs[i].position.y < -30) {
+    	if ( (pow( (bombs[i].position.x - objects[cur_cp].position.x), 2 ) + pow( (bombs[i].position.z - objects[cur_cp].position.z), 2 ) <= 100 ) &&  abs(objects[cur_cp].position.y - bombs[i].position.y) <= 1.0) {
+    		objects.erase(objects.begin() + cur_cp);
+    		cur_cp ++;
+    		bombs.erase(bombs.begin() + i);
+    	}
+    	else if (bombs[i].position.y < -30) {
     		bombs.erase(bombs.begin() + i);
     	}
     }
@@ -284,6 +327,24 @@ void tick_elements() {
     		fuels.erase(fuels.begin() + i);
     	}
     }
+
+    for (int i = 0; i < bullets.size(); i++) {
+    	// printf("%.2f %.2f %.2f\n",bullets[i].position.x, bullets[i].position.y, bullets[i].position.z );
+    	bullets[i].forward();
+    	if (bullets[i].position.z > 1000 || bullets[i].position.z < -1000 || bullets[i].position.y > 30) {
+    		bullets.erase(bullets.begin() + i);	
+    	}
+    }
+
+    checkpoint.position.x = objects[cur_cp].position.x;
+	checkpoint.position.y = objects[cur_cp].position.y + 8;
+	checkpoint.position.z = objects[cur_cp].position.z;
+	checkpoint.tick();
+
+	enemy.position.x = objects[cur_cp].position.x;
+	enemy.position.y = objects[cur_cp].position.y + 0.5;
+	enemy.position.z = objects[cur_cp].position.z;
+	
     camera_rotation_angle += 1;
 }
 
@@ -306,7 +367,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     indi3 = Indicator(-0.5f, 4.4f, 0, COLOR_BLACK); //speed
     // fan = Fan(0 ,0 , -2.0f, COLOR_BLACK);
     for (int i = 0; i < 20; i ++){
-    	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_RED));
+    	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_ISLAND));
     }
 
     for (int i = 0 ; i < 50; i ++) {
@@ -315,7 +376,11 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     for (int i = 0 ; i < 50; i ++) {
     	fuels.push_back( Fuel( rand()%1000 - 500, rand()%20 - 10, rand()%1000 - 500, COLOR_FUEL));
-    }	
+    }
+
+  	checkpoint = Checkpoint(objects[cur_cp].position.x, objects[cur_cp].position.y + 8, objects[cur_cp].position.z, COLOR_RING);
+  	enemy = Enemy(objects[cur_cp].position.x, objects[cur_cp].position.y + 0.5, objects[cur_cp].position.z, COLOR_RING);
+	
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform

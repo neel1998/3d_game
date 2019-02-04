@@ -9,8 +9,20 @@ CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: src/bomb.cpp
 CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: src/bomb.h
 CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: src/bullet.cpp
+CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: src/bullet.h
+CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: src/main.h
+
+CMakeFiles/graphics_asgn1.dir/src/checkpoint.cpp.o: src/checkpoint.cpp
+CMakeFiles/graphics_asgn1.dir/src/checkpoint.cpp.o: src/checkpoint.h
+CMakeFiles/graphics_asgn1.dir/src/checkpoint.cpp.o: src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: src/color.cpp
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: src/main.h
+
+CMakeFiles/graphics_asgn1.dir/src/enemy.cpp.o: src/enemy.cpp
+CMakeFiles/graphics_asgn1.dir/src/enemy.cpp.o: src/enemy.h
+CMakeFiles/graphics_asgn1.dir/src/enemy.cpp.o: src/main.h
 
 CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o: src/fan.cpp
 CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o: src/fan.h
@@ -33,6 +45,9 @@ CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: src/main.h
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/altMeter.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/bomb.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/bullet.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/checkpoint.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/enemy.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/fan.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/fuel.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/ground.h

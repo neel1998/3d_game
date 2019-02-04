@@ -1,20 +1,21 @@
 #include "main.h"
 
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef CHECKPOINT_H
+#define CHECKPOINT_H
 
 
-class Object {
+class Checkpoint {
 public:
-    Object() {}
-    Object(float x, float y, float z, color_t color);
+    Checkpoint() {}
+    Checkpoint(float x, float y, float z, color_t color);
     glm::vec3 position;
-    float rotation;
+    float rotationX;
+    float rotationY;
+    float rotationZ;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
     void tick();
     double speed;
-    bool collided;
 private:
     VAO *object;
 };

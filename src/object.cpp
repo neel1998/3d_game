@@ -4,6 +4,7 @@
 Object::Object(float x, float y, float z, color_t color) {
     this->position = glm::vec3(x, y, z);
     this->rotation = 0;
+    this->collided = false;
     speed = 1;
 
     // int z = rand()%1000 - 500;
@@ -12,55 +13,72 @@ Object::Object(float x, float y, float z, color_t color) {
     // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
     float height = 1.0;
     float length = 20.0;
-    float width = 20.0f;
-    float depth = -30.0f;
+    float width = 20.0;
+
+    height /= 2;
+    length /= 2;
+    width /= 2;
+    GLfloat colors[36*3];
+    for (int i = 24*3; i < 36*3 ; i += 3) {
+        colors[i] = 117.0/255.0;
+        colors[i + 1] = 64.0/255.0;
+        colors[i + 2] = 3.0/255.0;
+    }
+
+    for (int i = 0; i < 24*3 ; i += 3) {
+        colors[i] = 38.0/255.0;
+        colors[i + 1] = 20.0/255.0;
+        colors[i + 2] = 0;
+    }
+
+
      static const GLfloat vertex_buffer_data[] = {
-        0,0,0,
-        length, 0, 0,
-        0, height, 0,
-        length, 0, 0,
-        0, height, 0,
-        length, height, 0,
+        -length,-height,-width,
+        length, -height, -width,
+        -length, height, -width,
+        length, -height, -width,
+        -length, height, -width,
+        length, height, -width,
 
-        0,0,width,
-        length, 0, width,
-        0, height, width,
-        length, 0, width,
-        0, height, width,
+        -length,-height,width,
+        length, -height, width,
+        -length, height, width,
+        length, -height, width,
+        -length, height, width,
         length, height, width,
 
-        0, 0, 0,
-        0, height, 0,
-        0,0, width,
-        0, height, 0,
-        0,0, width,
-        0, height, width,
+        -length, -height, -width,
+        -length, height, -width,
+        -length,-height, width,
+        -length, height, -width,
+        -length,-height, width,
+        -length, height, width,
 
-        length, 0, 0,
-        length, height, 0,
-        length,0, width,
-        length, height, 0,
-        length,0, width,
+        length, -height, -width,
+        length, height, -width,
+        length,-height, width,
+        length, height, -width,
+        length,-height, width,
         length, height, width,
 
-        0,0,0,
-        length, 0, 0,
-        length, 0, width,
-        0,0,0,
-        length, 0, width,
-        0,0,width,
+        -length,-height,-width,
+        length, -height, -width,
+        length, -height, width,
+        -length,-height,-width,
+        length, -height, width,
+        -length,-height,width,
 
-        0,height,0,
-        length, height, 0,
+        -length,height,-width,
+        length, height, -width,
         length, height, width,
-        0,height,0,
+        -length,height,-width,
         length, height, width,
-        0,height,width,        
+        -length,height,width,                
 
     };
 
     
-    this->object = create3DObject(GL_TRIANGLES, 12*3, vertex_buffer_data, color, GL_FILL);
+    this->object = create3DObject(GL_TRIANGLES, 12*3, vertex_buffer_data, colors, GL_FILL);
 }
 
 void Object::draw(glm::mat4 VP) {

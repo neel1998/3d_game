@@ -1,13 +1,13 @@
 #include "main.h"
 
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 
-class Object {
+class Enemy {
 public:
-    Object() {}
-    Object(float x, float y, float z, color_t color);
+    Enemy() {}
+    Enemy(float x, float y, float z, color_t color);
     glm::vec3 position;
     float rotation;
     void draw(glm::mat4 VP);

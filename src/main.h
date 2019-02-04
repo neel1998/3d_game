@@ -86,5 +86,7 @@ extern const color_t COLOR_YELLOW;
 extern const color_t COLOR_RING;
 extern const color_t COLOR_BOMB;
 extern const color_t COLOR_FUEL;
+extern const color_t COLOR_ISLAND;
+extern const color_t COLOR_BULLET;
 
 #endif
