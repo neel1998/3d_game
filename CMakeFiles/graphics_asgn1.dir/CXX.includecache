@@ -16,6 +16,16 @@ altMeter.h
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
+/home/neel/IIIT/2-2/graphics/3d_game/src/bomb.cpp
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+bomb.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/bomb.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/bomb.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
 /home/neel/IIIT/2-2/graphics/3d_game/src/color.cpp
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
@@ -27,6 +37,16 @@ fan.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/fan.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/fan.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/fuel.cpp
+fuel.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/fuel.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/fuel.h
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
@@ -93,6 +113,10 @@ indicator.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/indicator.h
 ring.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
+bomb.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/bomb.h
+fuel.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/fuel.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 iostream

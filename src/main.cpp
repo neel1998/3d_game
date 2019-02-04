@@ -8,6 +8,8 @@
 #include "altMeter.h"
 #include "indicator.h"
 #include "ring.h"
+#include "bomb.h"
+#include "fuel.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -23,9 +25,15 @@ AltMeter altMeter1, altMeter2, altMeter3;
 Indicator indi1, indi2, indi3; 
 vector < Object > objects;
 vector < Missile > missiles;
+vector < Bomb > bombs;
 vector < Ring > rings;
+vector < Fuel > fuels;
 bool isMissile = false;
+bool isBomb = false;
 int missileTick = 0;
+
+
+
 // Fan fan;
 
 float cam_a = 0, cam_b = 4, cam_c = 10;
@@ -106,6 +114,12 @@ void draw() {
     for (int i = 0; i < rings.size(); i ++){
     	rings[i].draw(VP);
     }
+    for (int i = 0; i < bombs.size(); i++) {
+    	bombs[i].draw(VP);
+    }
+    for (int i = 0; i < fuels.size(); i++) {
+    	fuels[i].draw(VP);
+    }
 }
 
 void tick_input(GLFWwindow *window) {
@@ -119,6 +133,7 @@ void tick_input(GLFWwindow *window) {
     int space = glfwGetKey(window, GLFW_KEY_SPACE);
     int c = glfwGetKey(window, GLFW_KEY_C);
     int m = glfwGetKey(window, GLFW_KEY_M);
+    int b = glfwGetKey(window, GLFW_KEY_B);
     if (m && !isMissile) {
     	Missile missile = Missile(plane.position.x, plane.position.y, plane.position.z, COLOR_YELLOW);
     	missile.rotationX = plane.rotationX;
@@ -127,6 +142,15 @@ void tick_input(GLFWwindow *window) {
     	missiles.push_back(missile);
     	isMissile = true;
     }
+    if (b && !isBomb) {
+    	Bomb bomb = Bomb(plane.position.x, plane.position.y - 1, plane.position.z, COLOR_BOMB);
+    	bomb.rotationX = plane.rotationX;
+    	bomb.rotationY = plane.rotationY;
+    	bomb.rotationZ = plane.rotationZ;
+    	bombs.push_back(bomb);
+    	isBomb = true;
+    }
+
     if (c && cam) {
     	cam = false;
     	cam_pos = (cam_pos + 1)%total_cam_pos;
@@ -176,8 +200,8 @@ void tick_elements() {
 	indi2.position.x -= 0.00416f;
 	indi1.position.x -= 0.00416f;
 	if ( indi1.position.x <= -5.5) {
-		// printf("Out of Fuel\n");
-		// quit(window);
+		printf("Out of Fuel\n");
+		quit(window);
 	}
     plane.tick();
     switch(cam_pos){
@@ -215,11 +239,6 @@ void tick_elements() {
    			cam_a = 10;
    			cam_b = 10;
   			cam_c = 10;
-    		// 	cam_a = 10; cam_b = 0; cam_c = 0;
-    		// 	break;
-    		// case 3: 
-    		// 	cam_a = 1; cam_b = 20; cam_c = 0;
-    		// 	break;
     }
 
 	if (plane.position.y <= -30) {
@@ -236,6 +255,7 @@ void tick_elements() {
 	if (missileTick >= 50) {
 		missileTick = 0;
 		isMissile = false;
+		isBomb = false;
 	}
     for (int i = 0; i < missiles.size(); i++) {
     	missiles[i].forward();
@@ -243,7 +263,27 @@ void tick_elements() {
     		missiles.erase(missiles.begin() + i);	
     	}
     }
-    // fan.tick();
+    for (int i = 0; i < bombs.size(); i++) {
+    	bombs[i].forward();
+    	if (bombs[i].position.y < -30) {
+    		bombs.erase(bombs.begin() + i);
+    	}
+    }
+
+    for (int i = 0; i < rings.size(); i++) {
+    	if ( (pow( (rings[i].position.x - plane.position.x), 2 ) + pow( (rings[i].position.y - plane.position.y), 2 ) <= 25 ) &&  abs(plane.position.z - rings[i].position.z) <= 0.5 ) {
+    		// printf("ring\n");
+    		rings.erase(rings.begin() + i);
+    	}
+    }
+
+    for (int i = 0; i < fuels.size(); i++) {
+    	if ( (pow( (fuels[i].position.x - plane.position.x), 2 ) + pow( (fuels[i].position.y - plane.position.y), 2 ) <= 25 ) &&  abs(plane.position.z - fuels[i].position.z) <= 0.5 ) {
+    		// printf("fuel\n");
+    		indi1.position.x = -0.5f;
+    		fuels.erase(fuels.begin() + i);
+    	}
+    }
     camera_rotation_angle += 1;
 }
 
@@ -265,12 +305,16 @@ void initGL(GLFWwindow *window, int width, int height) {
     indi2 = Indicator(-3, 4.9f, 0, COLOR_BLACK); //alt
     indi3 = Indicator(-0.5f, 4.4f, 0, COLOR_BLACK); //speed
     // fan = Fan(0 ,0 , -2.0f, COLOR_BLACK);
-    for (int i = 0; i < 500; i ++){
+    for (int i = 0; i < 20; i ++){
     	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_RED));
     }
 
     for (int i = 0 ; i < 50; i ++) {
     	rings.push_back( Ring( rand()%1000 - 500, rand()%20 - 10, rand()%1000 - 500, rand()%90 - 45, COLOR_RING));
+    }
+
+    for (int i = 0 ; i < 50; i ++) {
+    	fuels.push_back( Fuel( rand()%1000 - 500, rand()%20 - 10, rand()%1000 - 500, COLOR_FUEL));
     }	
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");

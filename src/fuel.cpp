@@ -1,7 +1,7 @@
-#include "object.h"
+#include "fuel.h"
 #include "main.h"
 
-Object::Object(float x, float y, float z, color_t color) {
+Fuel::Fuel(float x, float y, float z, color_t color) {
     this->position = glm::vec3(x, y, z);
     this->rotation = 0;
     speed = 1;
@@ -10,11 +10,23 @@ Object::Object(float x, float y, float z, color_t color) {
     // int xx = rand()%1000 - 500;
     // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
     // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
-    float height = 1.0;
-    float length = 20.0;
-    float width = 20.0f;
     float depth = -30.0f;
-     static const GLfloat vertex_buffer_data[] = {
+    float height = 2.0;
+    float length = 1.4;
+    float width = 0.5;
+    GLfloat colors[36*3];
+    for (int i = 12*3; i < 36*3 ; i += 3) {
+        colors[i] = 0;
+        colors[i + 1] = 0.5;
+        colors[i + 2] = 0;
+    }
+
+    for (int i = 0; i < 12*3 ; i += 3) {
+        colors[i] = 0.0;
+        colors[i + 1] = 1.0;
+        colors[i + 2] = 0.2;
+    }
+    static const GLfloat vertex_buffer_data[] = {
         0,0,0,
         length, 0, 0,
         0, height, 0,
@@ -60,10 +72,10 @@ Object::Object(float x, float y, float z, color_t color) {
     };
 
     
-    this->object = create3DObject(GL_TRIANGLES, 12*3, vertex_buffer_data, color, GL_FILL);
+    this->object = create3DObject(GL_TRIANGLES, 12*3, vertex_buffer_data, colors, GL_FILL);
 }
 
-void Object::draw(glm::mat4 VP) {
+void Fuel::draw(glm::mat4 VP) {
     Matrices.model = glm::mat4(1.0f);
     glm::mat4 translate = glm::translate (this->position);    // glTranslatef
     glm::mat4 rotate    = glm::rotate((float) (this->rotation * M_PI / 180.0f), glm::vec3(1, 0, 0));
@@ -75,11 +87,11 @@ void Object::draw(glm::mat4 VP) {
     draw3DObject(this->object);
 }
 
-void Object::set_position(float x, float y) {
+void Fuel::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);
 }
 
-void Object::tick() {
+void Fuel::tick() {
     // this->rotation += speed;
     // this->position.x -= speed;
     // this->position.y -= speed;

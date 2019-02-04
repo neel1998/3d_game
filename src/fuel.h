@@ -1,19 +1,18 @@
 #include "main.h"
 
-#ifndef RING_H
-#define RING_H
+#ifndef FUEL_H
+#define FUEL_H
 
 
-class Ring {
+class Fuel {
 public:
-    Ring() {}
-    Ring(float x, float y, float z, float angle, color_t color);
+    Fuel() {}
+    Fuel(float x, float y, float z, color_t color);
     glm::vec3 position;
-    float rotationX;
-    float rotationY;
-    float rotationZ;
+    float rotation;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
+    void tick();
     double speed;
 private:
     VAO *object;
