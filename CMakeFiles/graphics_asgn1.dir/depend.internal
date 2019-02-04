@@ -33,6 +33,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/missile.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/object.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/plane.h
+ /home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/timer.h
 CMakeFiles/graphics_asgn1.dir/src/missile.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
@@ -52,6 +53,10 @@ CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp
  /home/neel/IIIT/2-2/graphics/3d_game/src/plane.h
+CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o
+ /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+ /home/neel/IIIT/2-2/graphics/3d_game/src/ring.cpp
+ /home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/timer.cpp
  /home/neel/IIIT/2-2/graphics/3d_game/src/timer.h

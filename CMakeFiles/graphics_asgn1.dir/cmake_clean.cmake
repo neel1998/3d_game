@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/fan.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"

@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/neel/IIIT/2-2/graphics/3d_game/src/object.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/object.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/other_handlers.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o"
+  "/home/neel/IIIT/2-2/graphics/3d_game/src/ring.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/timer.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

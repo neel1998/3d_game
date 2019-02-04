@@ -7,6 +7,7 @@
 #include "missile.h"
 #include "altMeter.h"
 #include "indicator.h"
+#include "ring.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -22,6 +23,7 @@ AltMeter altMeter1, altMeter2, altMeter3;
 Indicator indi1, indi2, indi3; 
 vector < Object > objects;
 vector < Missile > missiles;
+vector < Ring > rings;
 bool isMissile = false;
 int missileTick = 0;
 // Fan fan;
@@ -101,7 +103,9 @@ void draw() {
     for (int i = 0; i < missiles.size(); i ++){
     	missiles[i].draw(VP);
     }
-
+    for (int i = 0; i < rings.size(); i ++){
+    	rings[i].draw(VP);
+    }
 }
 
 void tick_input(GLFWwindow *window) {
@@ -263,6 +267,10 @@ void initGL(GLFWwindow *window, int width, int height) {
     // fan = Fan(0 ,0 , -2.0f, COLOR_BLACK);
     for (int i = 0; i < 500; i ++){
     	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_RED));
+    }
+
+    for (int i = 0 ; i < 50; i ++) {
+    	rings.push_back( Ring( rand()%1000 - 500, rand()%20 - 10, rand()%1000 - 500, rand()%90 - 45, COLOR_RING));
     }	
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");

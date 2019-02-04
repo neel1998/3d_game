@@ -91,6 +91,8 @@ altMeter.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.h
 indicator.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/indicator.h
+ring.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 iostream
@@ -183,6 +185,16 @@ main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/plane.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/ring.cpp
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+ring.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
