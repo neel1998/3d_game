@@ -13,6 +13,7 @@
 #include "checkpoint.h"
 #include "enemy.h"
 #include "bullet.h"
+#include "volcano.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -32,6 +33,7 @@ vector < Bomb > bombs;
 vector < Ring > rings;
 vector < Fuel > fuels;
 vector < Bullet > bullets;
+vector < Volcano > volcanos;
 
 Checkpoint checkpoint;
 Enemy enemy;
@@ -43,22 +45,31 @@ bool isBullet = false;
 int missileTick = 0;
 int bulletTick = 0;
 
-
+double prev_x = 0;
+double prev_y = 0;
 // Fan fan;
+float heli_cam_radius1 = 10;
+float heli_cam_radius2 = 10;
 
 float cam_a = 0, cam_b = 4, cam_c = 10;
 float tar_a, tar_b, tar_c;
 int cam_pos = 0;
 bool cam = true;
 int cam_tick = 0;
-int total_cam_pos = 4;
+int total_cam_pos = 5;
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
+
+float heli_rotate_angle = 0;
+float heli_ele_angle = 0;
+
 
 Timer t60(1.0 / 60);
 
 /* Render the scene with openGL */
 /* Edit this function according to your assignment */
+
+
 void draw() {
 	
     // clear the color and depth in the frame buffer
@@ -135,6 +146,52 @@ void draw() {
     for (int i = 0; i < bullets.size(); i++) {
     	bullets[i].draw(VP);
     }
+    for (int i = 0; i < volcanos.size(); i++) {
+    	volcanos[i].draw(VP);
+    } 
+}
+void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos)
+{
+	if ( xpos > prev_x ) { // right
+		heli_rotate_angle += 1;
+
+	}
+	else { // left
+		heli_rotate_angle -= 1;
+	}
+	if ( ypos < prev_y ) { // up
+		heli_ele_angle += 1;
+	}
+	else {
+		heli_ele_angle -= 1;
+	}
+	heli_cam_radius2 = heli_cam_radius1*cos(heli_ele_angle * M_PI / 180.0f);
+	cam_a = plane.position.x + heli_cam_radius2*cos(heli_rotate_angle * M_PI / 180.0f);		
+	cam_b = plane.position.y + heli_cam_radius1*sin(heli_ele_angle * M_PI / 180.0f);		
+	cam_c = plane.position.z + heli_cam_radius2*sin(heli_rotate_angle * M_PI / 180.0f);		
+	prev_x = xpos;
+	prev_y = ypos;
+}
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS && !isBomb) {
+    	Bomb bomb = Bomb(plane.position.x, plane.position.y - 1, plane.position.z, COLOR_BOMB);
+    	bomb.rotationX = plane.rotationX;
+    	bomb.rotationY = plane.rotationY;
+    	bomb.rotationZ = plane.rotationZ;
+    	bombs.push_back(bomb);
+    	isBomb = true;
+        // popup_menu();
+    }
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS && !isMissile) {
+    	Missile missile = Missile(plane.position.x, plane.position.y, plane.position.z, COLOR_YELLOW);
+    	missile.rotationX = plane.rotationX;
+    	missile.rotationY = plane.rotationY;
+    	missile.rotationZ = plane.rotationZ;
+    	missiles.push_back(missile);
+    	isMissile = true;
+        // popup_menu();
+    }
 }
 
 void tick_input(GLFWwindow *window) {
@@ -147,28 +204,13 @@ void tick_input(GLFWwindow *window) {
     int w = glfwGetKey(window, GLFW_KEY_W);
     int space = glfwGetKey(window, GLFW_KEY_SPACE);
     int c = glfwGetKey(window, GLFW_KEY_C);
-    int m = glfwGetKey(window, GLFW_KEY_M);
-    int b = glfwGetKey(window, GLFW_KEY_B);
-    if (m && !isMissile) {
-    	Missile missile = Missile(plane.position.x, plane.position.y, plane.position.z, COLOR_YELLOW);
-    	missile.rotationX = plane.rotationX;
-    	missile.rotationY = plane.rotationY;
-    	missile.rotationZ = plane.rotationZ;
-    	missiles.push_back(missile);
-    	isMissile = true;
-    }
-    if (b && !isBomb) {
-    	Bomb bomb = Bomb(plane.position.x, plane.position.y - 1, plane.position.z, COLOR_BOMB);
-    	bomb.rotationX = plane.rotationX;
-    	bomb.rotationY = plane.rotationY;
-    	bomb.rotationZ = plane.rotationZ;
-    	bombs.push_back(bomb);
-    	isBomb = true;
-    }
-
+    
     if (c && cam) {
     	cam = false;
     	cam_pos = (cam_pos + 1)%total_cam_pos;
+    	if ( c == 4) {
+    		// cam_a = plane.position.x + heli_cam_radius;
+    	}
     	
     }
     if (left) {
@@ -208,11 +250,20 @@ void tick_input(GLFWwindow *window) {
     	plane.forward();
     	// fan.forward();
     }
+
+    // glfwSetCursorPosCallback(window, cursor_pos_callback);
+    glfwSetMouseButtonCallback(window, mouse_button_callback);
 }
+
+
+
 void tick_elements() {
 
-	printf("%d\n",(int)bullets.size() );
+	
+	cam_b -= 0.05f;
 
+
+	//enemy bullets
 	if (!isBullet) {
 		isBullet = true;
 		Bullet bullet = Bullet(enemy.position.x, enemy.position.y, enemy.position.z, plane.position.x, plane.position.y, plane.position.z, COLOR_BULLET);
@@ -223,11 +274,14 @@ void tick_elements() {
 		bullets.push_back(bullet);
 	}
 	
-	cam_b -= 0.05f;
 	indi2.position.x -= 0.00416f;
 	// indi1.position.x -= 0.00416f;
 	if ( indi1.position.x <= -5.5) {
 		// printf("Out of Fuel\n");
+		// quit(window);
+	}
+	if (plane.position.y <= -30) {
+		// printf("Crashed\n");
 		// quit(window);
 	}
     plane.tick();
@@ -266,12 +320,21 @@ void tick_elements() {
    			cam_a = 10;
    			cam_b = 10;
   			cam_c = 10;
+  			break;
+
+  		case 4: // Heli - Cam
+  			tar_a = plane.position.x;
+    		tar_c = plane.position.z;
+    		tar_b = plane.position.y;
+
+    		heli_cam_radius2 = heli_cam_radius1*cos(heli_ele_angle * M_PI / 180.0f);
+			cam_a = plane.position.x + heli_cam_radius2*cos(heli_rotate_angle * M_PI / 180.0f);		
+			cam_b = plane.position.y + heli_cam_radius1*sin(heli_ele_angle * M_PI / 180.0f);		
+			cam_c = plane.position.z + heli_cam_radius2*sin(heli_rotate_angle * M_PI / 180.0f);		
+  			glfwSetCursorPosCallback(window, cursor_pos_callback);
     }
 
-	if (plane.position.y <= -30) {
-		// printf("Crashed\n");
-		// quit(window);
-	}
+	
 
 	cam_tick ++;
 	if (cam_tick >= 50) {
@@ -329,9 +392,12 @@ void tick_elements() {
     }
 
     for (int i = 0; i < bullets.size(); i++) {
-    	// printf("%.2f %.2f %.2f\n",bullets[i].position.x, bullets[i].position.y, bullets[i].position.z );
     	bullets[i].forward();
-    	if (bullets[i].position.z > 1000 || bullets[i].position.z < -1000 || bullets[i].position.y > 30) {
+    	if ( pow( (bullets[i].position.x - plane.position.x) , 2) + pow((bullets[i].position.z - plane.position.z) , 2) + pow((bullets[i].position.z - plane.position.z) , 2) <= 0.5 ) {
+    		bullets.erase(bullets.begin() + i);
+    		printf("killed\n");
+    	}
+    	else if (bullets[i].position.z > 1000 || bullets[i].position.z < -1000 || bullets[i].position.y > 30) {
     		bullets.erase(bullets.begin() + i);	
     	}
     }
@@ -377,7 +443,9 @@ void initGL(GLFWwindow *window, int width, int height) {
     for (int i = 0 ; i < 50; i ++) {
     	fuels.push_back( Fuel( rand()%1000 - 500, rand()%20 - 10, rand()%1000 - 500, COLOR_FUEL));
     }
-
+    for (int i = 0; i < 5; i ++) {
+    	volcanos.push_back( Volcano(rand()%1000 - 500, -30, rand()%1000 - 500, COLOR_ISLAND) );
+    }
   	checkpoint = Checkpoint(objects[cur_cp].position.x, objects[cur_cp].position.y + 8, objects[cur_cp].position.z, COLOR_RING);
   	enemy = Enemy(objects[cur_cp].position.x, objects[cur_cp].position.y + 0.5, objects[cur_cp].position.z, COLOR_RING);
 	

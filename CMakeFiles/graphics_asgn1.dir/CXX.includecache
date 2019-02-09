@@ -153,6 +153,8 @@ enemy.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/enemy.h
 bullet.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/bullet.h
+volcano.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/volcano.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 iostream
@@ -265,4 +267,14 @@ GLFW/glfw3.h
 -
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/timer.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/volcano.cpp
+volcano.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/volcano.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/volcano.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 

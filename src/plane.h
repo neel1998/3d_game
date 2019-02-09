@@ -23,6 +23,7 @@ public:
     void rotateR();
     void rotateL();
     double speed;
+    float acc;
 private:
     VAO *object;
 };

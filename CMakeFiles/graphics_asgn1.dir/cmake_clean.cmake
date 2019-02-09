@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/fuel.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/volcano.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/object.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/checkpoint.cpp.o"
