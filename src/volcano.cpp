@@ -28,7 +28,9 @@ Volcano::Volcano(float x, float y, float z, color_t color) {
         colors[i + 1] = 20.0/255.0;
         colors[i + 2] = 0;
     }
-
+    colors[6] = colors[15] = colors[24] = colors[33] = 1;
+    colors[7] = colors[16] = colors[25] = colors[34] = 0;
+    colors[8] = colors[17] = colors[26] = colors[35] = 0;
     static const GLfloat vertex_buffer_data[] = {
         -length,0,-length,
         length, 0, -length,

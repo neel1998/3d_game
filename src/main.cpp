@@ -300,17 +300,17 @@ void tick_elements() {
 	}
 	
 	indi2.position.x -= 0.00416f;
-	// indi1.position.x -= 0.00416f;
+	indi1.position.x -= 0.00416f;
 	if (indi3.position.x >= -5.5) {
 		indi3.position.x -= 0.01;
 	}
 	if ( indi1.position.x <= -5.5) {
-		// printf("Out of Fuel\n");
-		// quit(window);
+		printf("Out of Fuel\n");
+		quit(window);
 	}
 	if (plane.position.y <= -30) {
-		// printf("Crashed\n");
-		// quit(window);
+		printf("Crashed\n");
+		quit(window);
 	}
     plane.tick();
     switch(cam_pos){
@@ -457,10 +457,12 @@ void tick_elements() {
     	}
     }
     for (int i = 0; i < volcanos.size(); i ++) {
-    	if (abs(plane.position.x - volcanos[i].position.x) <= 5 && abs(plane.position.z - volcanos[i].position.z) <= 5 && !volcanos[i].collided ) {
-    		plane.health --;
-    		indi4.position.x -= 0.5;
-    		volcanos[i].collided = true;
+    	if (abs(plane.position.x - volcanos[i].position.x) <= 5 && abs(plane.position.z - volcanos[i].position.z) <= 5 ) {
+    		// plane.health --;
+    		// indi4.position.x -= 0.5;
+    		// volcanos[i].collided = true;
+    		printf("Killed by Volcano\n");
+    		quit(window);
     		break;
     	}
     }
@@ -558,7 +560,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     	volcanos.push_back( Volcano(rand()%1000 - 500, -30, rand()%1000 - 500, COLOR_ISLAND) );
     }
 
-    for (int i = 0 ; i < 10; i ++) {
+    for (int i = 0 ; i < 20; i ++) {
     	para.push_back(Para( rand()%1000 - 500, rand()%20 - 10, rand()%1000 - 500, COLOR_PARA ));
 	}
 
