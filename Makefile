@@ -555,6 +555,33 @@ src/other_handlers.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.s
 .PHONY : src/other_handlers.cpp.s
 
+src/para.o: src/para.cpp.o
+
+.PHONY : src/para.o
+
+# target to build an object file
+src/para.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/para.cpp.o
+.PHONY : src/para.cpp.o
+
+src/para.i: src/para.cpp.i
+
+.PHONY : src/para.i
+
+# target to preprocess a source file
+src/para.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/para.cpp.i
+.PHONY : src/para.cpp.i
+
+src/para.s: src/para.cpp.s
+
+.PHONY : src/para.s
+
+# target to generate assembly for a file
+src/para.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/para.cpp.s
+.PHONY : src/para.cpp.s
+
 src/plane.o: src/plane.cpp.o
 
 .PHONY : src/plane.o
@@ -608,6 +635,33 @@ src/ring.s: src/ring.cpp.s
 src/ring.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ring.cpp.s
 .PHONY : src/ring.cpp.s
+
+src/score.o: src/score.cpp.o
+
+.PHONY : src/score.o
+
+# target to build an object file
+src/score.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/score.cpp.o
+.PHONY : src/score.cpp.o
+
+src/score.i: src/score.cpp.i
+
+.PHONY : src/score.i
+
+# target to preprocess a source file
+src/score.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/score.cpp.i
+.PHONY : src/score.cpp.i
+
+src/score.s: src/score.cpp.s
+
+.PHONY : src/score.s
+
+# target to generate assembly for a file
+src/score.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/score.cpp.s
+.PHONY : src/score.cpp.s
 
 src/timer.o: src/timer.cpp.o
 
@@ -720,12 +774,18 @@ help:
 	@echo "... src/other_handlers.o"
 	@echo "... src/other_handlers.i"
 	@echo "... src/other_handlers.s"
+	@echo "... src/para.o"
+	@echo "... src/para.i"
+	@echo "... src/para.s"
 	@echo "... src/plane.o"
 	@echo "... src/plane.i"
 	@echo "... src/plane.s"
 	@echo "... src/ring.o"
 	@echo "... src/ring.i"
 	@echo "... src/ring.s"
+	@echo "... src/score.o"
+	@echo "... src/score.i"
+	@echo "... src/score.s"
 	@echo "... src/timer.o"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"

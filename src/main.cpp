@@ -14,6 +14,8 @@
 #include "enemy.h"
 #include "bullet.h"
 #include "volcano.h"
+#include "score.h"
+#include "para.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -25,8 +27,8 @@ GLFWwindow *window;
 **************************/
 Plane plane;
 Ground ground;
-AltMeter altMeter1, altMeter2, altMeter3;
-Indicator indi1, indi2, indi3; 
+AltMeter altMeter1, altMeter2, altMeter3, altMeter4;
+Indicator indi1, indi2, indi3, indi4; 
 vector < Object > objects;
 vector < Missile > missiles;
 vector < Bomb > bombs;
@@ -34,6 +36,8 @@ vector < Ring > rings;
 vector < Fuel > fuels;
 vector < Bullet > bullets;
 vector < Volcano > volcanos;
+vector < Score > score;
+vector < Para > para;
 
 Checkpoint checkpoint;
 Enemy enemy;
@@ -50,6 +54,8 @@ double prev_y = 0;
 // Fan fan;
 float heli_cam_radius1 = 10;
 float heli_cam_radius2 = 10;
+
+int scoreTick = 0;
 
 float cam_a = 0, cam_b = 4, cam_c = 10;
 float tar_a, tar_b, tar_c;
@@ -91,10 +97,14 @@ void draw() {
     altMeter1.draw(VP2);
     altMeter2.draw(VP2);
     altMeter3.draw(VP2);
+    altMeter4.draw(VP2);
     indi1.draw(VP2);
     indi2.draw(VP2);
     indi3.draw(VP2);
-
+    indi4.draw(VP2);
+    for (int i = 0; i < score.size(); i ++){
+   		score[i].draw(VP2);
+   	} 
     // Eye - Location of camera. Don't change unless you are sure!!
     glm::vec3 eye ( cam_a, cam_b, cam_c );
 
@@ -148,29 +158,35 @@ void draw() {
     }
     for (int i = 0; i < volcanos.size(); i++) {
     	volcanos[i].draw(VP);
-    } 
+    }
+    for (int i = 0; i < para.size(); i++) {
+    	para[i].draw(VP);
+    }
+    
 }
 void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos)
 {
-	if ( xpos > prev_x ) { // right
-		heli_rotate_angle += 1;
+	if (cam_pos == 4){
+		if ( xpos > prev_x ) { // right
+			heli_rotate_angle += 1;
 
+		}
+		else { // left
+			heli_rotate_angle -= 1;
+		}
+		if ( ypos < prev_y ) { // up
+			heli_ele_angle += 1;
+		}
+		else {
+			heli_ele_angle -= 1;
+		}
+		heli_cam_radius2 = heli_cam_radius1*cos(heli_ele_angle * M_PI / 180.0f);
+		cam_a = plane.position.x + heli_cam_radius2*cos(heli_rotate_angle * M_PI / 180.0f);		
+		cam_b = plane.position.y + heli_cam_radius1*sin(heli_ele_angle * M_PI / 180.0f);		
+		cam_c = plane.position.z + heli_cam_radius2*sin(heli_rotate_angle * M_PI / 180.0f);		
+		prev_x = xpos;
+		prev_y = ypos;
 	}
-	else { // left
-		heli_rotate_angle -= 1;
-	}
-	if ( ypos < prev_y ) { // up
-		heli_ele_angle += 1;
-	}
-	else {
-		heli_ele_angle -= 1;
-	}
-	heli_cam_radius2 = heli_cam_radius1*cos(heli_ele_angle * M_PI / 180.0f);
-	cam_a = plane.position.x + heli_cam_radius2*cos(heli_rotate_angle * M_PI / 180.0f);		
-	cam_b = plane.position.y + heli_cam_radius1*sin(heli_ele_angle * M_PI / 180.0f);		
-	cam_c = plane.position.z + heli_cam_radius2*sin(heli_rotate_angle * M_PI / 180.0f);		
-	prev_x = xpos;
-	prev_y = ypos;
 }
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
@@ -247,6 +263,9 @@ void tick_input(GLFWwindow *window) {
     	// fan.boost();
     }
     if (w) {
+    	if (indi3.position.x < -0.5) {
+    		indi3.position.x += 0.02;
+    	}
     	plane.forward();
     	// fan.forward();
     }
@@ -259,10 +278,16 @@ void tick_input(GLFWwindow *window) {
 
 void tick_elements() {
 
-	
+	char str[200];
+	sprintf(str, "Checkpints Completed : %d",cur_cp);
+    glfwSetWindowTitle(window, str);
+	//gravity
 	cam_b -= 0.05f;
 
-
+	if (plane.health < 0) {
+		printf("Killed\n");
+		quit(window);
+	}
 	//enemy bullets
 	if (!isBullet) {
 		isBullet = true;
@@ -276,6 +301,9 @@ void tick_elements() {
 	
 	indi2.position.x -= 0.00416f;
 	// indi1.position.x -= 0.00416f;
+	if (indi3.position.x >= -5.5) {
+		indi3.position.x -= 0.01;
+	}
 	if ( indi1.position.x <= -5.5) {
 		// printf("Out of Fuel\n");
 		// quit(window);
@@ -332,6 +360,7 @@ void tick_elements() {
 			cam_b = plane.position.y + heli_cam_radius1*sin(heli_ele_angle * M_PI / 180.0f);		
 			cam_c = plane.position.z + heli_cam_radius2*sin(heli_rotate_angle * M_PI / 180.0f);		
   			glfwSetCursorPosCallback(window, cursor_pos_callback);
+  			break;
     }
 
 	
@@ -352,16 +381,35 @@ void tick_elements() {
 		isBullet = false;
 		bulletTick = 0;
 	}
+	scoreTick ++;
+	if (scoreTick >= 200) {
+		plane.score += 1;
+		scoreTick = 0;
+	}
     for (int i = 0; i < missiles.size(); i++) {
     	missiles[i].forward();
     	if ( (pow( (missiles[i].position.x - objects[cur_cp].position.x), 2 ) + pow( (missiles[i].position.z - objects[cur_cp].position.z), 2 ) <= 45 ) &&  abs(objects[cur_cp].position.y - missiles[i].position.y) <=  3 ) {
     		objects.erase(objects.begin() + cur_cp);
     		cur_cp ++;
+    		plane.score += 5;
+    		if (cur_cp == 5) {
+    			printf("YOU WIN!!!\n");
+    			quit(window);
+    		}
     		missiles.erase(missiles.begin() + i);	
     	}
- 
     	else if (missiles[i].position.z > 1000 || missiles[i].position.z < -1000) {
     		missiles.erase(missiles.begin() + i);	
+    	}
+    	else {
+    		for (int j = 0; j < para.size(); j ++){
+		    	if ( (pow( (missiles[i].position.x - para[j].position.x), 2 ) + pow( (missiles[i].position.z - para[j].position.z), 2 ) <= 45 ) &&  abs(para[j].position.y - missiles[i].position.y) <=  3 ) {
+    				missiles.erase(missiles.begin() + i);	
+		    		para.erase(para.begin() + j);	
+		    		plane.score += 3;
+		    	}
+
+    		}
     	}
     }
     for (int i = 0; i < bombs.size(); i++) {
@@ -369,6 +417,11 @@ void tick_elements() {
     	if ( (pow( (bombs[i].position.x - objects[cur_cp].position.x), 2 ) + pow( (bombs[i].position.z - objects[cur_cp].position.z), 2 ) <= 100 ) &&  abs(objects[cur_cp].position.y - bombs[i].position.y) <= 1.0) {
     		objects.erase(objects.begin() + cur_cp);
     		cur_cp ++;
+    		plane.score += 5;
+    		if (cur_cp == 5) {
+    			printf("YOU WIN!!!\n");
+    			quit(window);
+    		}
     		bombs.erase(bombs.begin() + i);
     	}
     	else if (bombs[i].position.y < -30) {
@@ -380,6 +433,7 @@ void tick_elements() {
     	if ( (pow( (rings[i].position.x - plane.position.x), 2 ) + pow( (rings[i].position.y - plane.position.y), 2 ) <= 25 ) &&  abs(plane.position.z - rings[i].position.z) <= 0.5 ) {
     		// printf("ring\n");
     		rings.erase(rings.begin() + i);
+    		plane.score += 2;
     	}
     }
 
@@ -395,11 +449,23 @@ void tick_elements() {
     	bullets[i].forward();
     	if ( pow( (bullets[i].position.x - plane.position.x) , 2) + pow((bullets[i].position.z - plane.position.z) , 2) + pow((bullets[i].position.z - plane.position.z) , 2) <= 0.5 ) {
     		bullets.erase(bullets.begin() + i);
-    		printf("killed\n");
+    		indi4.position.x -= 0.5;
+    		plane.health --;
     	}
     	else if (bullets[i].position.z > 1000 || bullets[i].position.z < -1000 || bullets[i].position.y > 30) {
     		bullets.erase(bullets.begin() + i);	
     	}
+    }
+    for (int i = 0; i < volcanos.size(); i ++) {
+    	if (abs(plane.position.x - volcanos[i].position.x) <= 5 && abs(plane.position.z - volcanos[i].position.z) <= 5 && !volcanos[i].collided ) {
+    		plane.health --;
+    		indi4.position.x -= 0.5;
+    		volcanos[i].collided = true;
+    		break;
+    	}
+    }
+    for (int i = 0; i < para.size(); i++) {
+    	para[i].tick();
     }
 
     checkpoint.position.x = objects[cur_cp].position.x;
@@ -411,9 +477,52 @@ void tick_elements() {
 	enemy.position.y = objects[cur_cp].position.y + 0.5;
 	enemy.position.z = objects[cur_cp].position.z;
 	
+
+	int c = plane.score;
+	writeScore(c%10, (c/10)%10, (c/100)%10);
+
     camera_rotation_angle += 1;
 }
+void writeScore(int unit, int dec, int hund ){
+	score.clear();
+	Score s;
+	int numb[] = {hund, dec, unit};
+	for (int i = 0; i < 3; i++){
+		if (numb[i] != 5 && numb[i] != 6){
+			s = Score(6 + (i+1)*1.5 , 1 + 9, -10, COLOR_RED); // right top
+	    	score.push_back(s);
+		}
+		if ( numb[i] != 2){
+			Score s = Score(6 + (i+1)*1.5, 0 + 9, -10, COLOR_RED); //right bottom
+	    	score.push_back(s);
+		}
 
+		if ( numb[i] != 1 && numb[i] != 2 && numb[i] != 7  && numb[i] != 3){
+			s = Score(5 + (i+1)*1.5, 1 + 9, -10, COLOR_RED); // left top
+	    	score.push_back(s);
+		}
+	    if ( numb[i] == 2 || numb[i] == 8 || numb[i] == 6 || numb[i] == 0 ){
+			s = Score(5 + (i+1)*1.5, 0 + 9, -10, COLOR_RED); // left bottom
+	    	score.push_back(s);
+		}
+	    if ( numb[i] != 1 && numb[i] != 7 && numb[i] != 0){
+			s = Score(5.5 + (i+1)*1.5, 0.5f + 9, -10, COLOR_RED); //middle
+	    	s.rotation = 90;
+	   	 	score.push_back(s);
+		}
+		if ( numb[i] != 1 && numb[i] != 4 ){
+			s = Score(5.5 + (i+1)*1.5, 1.5f + 9, -10, COLOR_RED); // top
+	    	s.rotation = 90;
+	    	score.push_back(s);
+		}
+	    if ( numb[i] != 1 && numb[i] != 7  && numb[i] != 4){
+			s = Score(5.5 + (i+1)*1.5, -0.5f + 9, -10, COLOR_RED); //bottom
+	    	s.rotation = 90;
+	    	score.push_back(s);
+		}    
+	    	        
+	}
+}
 /* Initialize the OpenGL rendering properties */
 /* Add all the models to be created here */
 void initGL(GLFWwindow *window, int width, int height) {
@@ -427,10 +536,12 @@ void initGL(GLFWwindow *window, int width, int height) {
     altMeter1 = AltMeter(-5.5f, 5.5f, 0, COLOR_RED);
     altMeter2 = AltMeter(-5.5f, 5, 0, COLOR_GREEN);
     altMeter3 = AltMeter(-5.5f, 4.5f, 0, COLOR_YELLOW);
+    altMeter4 = AltMeter(-5.5f, 4, 0, COLOR_RING);
 
     indi1 = Indicator(-0.5f, 5.4f, 0, COLOR_BLACK); //fuel
     indi2 = Indicator(-3, 4.9f, 0, COLOR_BLACK); //alt
-    indi3 = Indicator(-0.5f, 4.4f, 0, COLOR_BLACK); //speed
+    indi3 = Indicator(-5.5f, 4.4f, 0, COLOR_BLACK); //speed
+    indi4 = Indicator(-0.5f, 3.9f, 0, COLOR_BLACK); //health
     // fan = Fan(0 ,0 , -2.0f, COLOR_BLACK);
     for (int i = 0; i < 20; i ++){
     	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_ISLAND));
@@ -446,6 +557,11 @@ void initGL(GLFWwindow *window, int width, int height) {
     for (int i = 0; i < 5; i ++) {
     	volcanos.push_back( Volcano(rand()%1000 - 500, -30, rand()%1000 - 500, COLOR_ISLAND) );
     }
+
+    for (int i = 0 ; i < 10; i ++) {
+    	para.push_back(Para( rand()%1000 - 500, rand()%20 - 10, rand()%1000 - 500, COLOR_PARA ));
+	}
+
   	checkpoint = Checkpoint(objects[cur_cp].position.x, objects[cur_cp].position.y + 8, objects[cur_cp].position.z, COLOR_RING);
   	enemy = Enemy(objects[cur_cp].position.x, objects[cur_cp].position.y + 0.5, objects[cur_cp].position.z, COLOR_RING);
 	

@@ -95,7 +95,7 @@ void Missile::tick() {
     // this->position.y -= speed;
 }
 void Missile :: forward() {
-    this->position.z -= 0.8*cos(this->rotationY * M_PI / 180.0f);
-    this->position.x -= 0.8*sin(this->rotationY * M_PI / 180.0f);
+    this->position.z -= 0.9*cos(this->rotationY * M_PI / 180.0f);
+    this->position.x -= 0.9*sin(this->rotationY * M_PI / 180.0f);
     // this->position. += 0.1;
 }

@@ -155,6 +155,10 @@ bullet.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/bullet.h
 volcano.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/volcano.h
+score.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/score.h
+para.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/para.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 iostream
@@ -240,6 +244,16 @@ glm/gtc/matrix_transform.hpp
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
+/home/neel/IIIT/2-2/graphics/3d_game/src/para.cpp
+para.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/para.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/para.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
 /home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp
 plane.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/plane.h
@@ -257,6 +271,16 @@ ring.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/ring.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/score.cpp
+score.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/score.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/score.h
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 

@@ -20,8 +20,10 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/neel/IIIT/2-2/graphics/3d_game/src/nonedit.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/object.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/object.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/other_handlers.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
+  "/home/neel/IIIT/2-2/graphics/3d_game/src/para.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/para.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/plane.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/ring.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o"
+  "/home/neel/IIIT/2-2/graphics/3d_game/src/score.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/score.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/timer.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
   "/home/neel/IIIT/2-2/graphics/3d_game/src/volcano.cpp" "/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles/graphics_asgn1.dir/src/volcano.cpp.o"
   )

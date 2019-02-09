@@ -22,6 +22,8 @@ public:
     void tiltR();
     void rotateR();
     void rotateL();
+    int score;
+    int health;
     double speed;
     float acc;
 private:

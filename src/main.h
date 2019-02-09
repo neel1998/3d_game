@@ -35,6 +35,8 @@ void mouseButton(GLFWwindow *window, int button, int action, int mods);
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset);
 void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos);
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+void writeScore(int unit, int dec, int hund );
+
 
 // other_handlers.cpp
 void error_callback(int error, const char *description);
@@ -90,5 +92,6 @@ extern const color_t COLOR_BOMB;
 extern const color_t COLOR_FUEL;
 extern const color_t COLOR_ISLAND;
 extern const color_t COLOR_BULLET;
+extern const color_t COLOR_PARA;
 
 #endif

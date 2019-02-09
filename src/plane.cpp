@@ -7,7 +7,9 @@ Plane::Plane(float x, float y, float z, color_t color) {
     this->rotationY = 0;
     this->rotationZ = 0;
     this->speed = 0.5;
-    this->acc = 0.001;
+    this->acc = 0.0001;
+    this->score = 0;
+    this->health = 10;
     // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
     // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
     int total = 0;
@@ -163,6 +165,10 @@ void Plane::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);
 }
 void Plane :: forward() {
+
+    if (this->speed < 0.6) {
+        this->speed += this->acc;
+    }
 	this->position.z -= 0.5*cos(this->rotationY * M_PI / 180.0f);
 	this->position.x -= 0.5*sin(this->rotationY * M_PI / 180.0f);
 	// this->position. += 0.1;
