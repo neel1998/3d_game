@@ -5,6 +5,10 @@ CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o: src/altMeter.cpp
 CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o: src/altMeter.h
 CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o: src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/arrow.cpp.o: src/arrow.cpp
+CMakeFiles/graphics_asgn1.dir/src/arrow.cpp.o: src/arrow.h
+CMakeFiles/graphics_asgn1.dir/src/arrow.cpp.o: src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: src/bomb.cpp
 CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: src/bomb.h
 CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: src/main.h
@@ -44,6 +48,7 @@ CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: src/input.cpp
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: src/main.h
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/altMeter.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/arrow.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/bomb.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/bullet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: src/checkpoint.h

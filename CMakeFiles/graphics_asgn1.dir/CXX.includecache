@@ -16,6 +16,16 @@ altMeter.h
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 
+/home/neel/IIIT/2-2/graphics/3d_game/src/arrow.cpp
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+arrow.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/arrow.h
+
+/home/neel/IIIT/2-2/graphics/3d_game/src/arrow.h
+main.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+
 /home/neel/IIIT/2-2/graphics/3d_game/src/bomb.cpp
 main.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
@@ -159,6 +169,8 @@ score.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/score.h
 para.h
 /home/neel/IIIT/2-2/graphics/3d_game/src/para.h
+arrow.h
+/home/neel/IIIT/2-2/graphics/3d_game/src/arrow.h
 
 /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 iostream

@@ -5,6 +5,10 @@ CMakeFiles/graphics_asgn1.dir/src/altMeter.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.cpp
  /home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
+CMakeFiles/graphics_asgn1.dir/src/arrow.cpp.o
+ /home/neel/IIIT/2-2/graphics/3d_game/src/arrow.cpp
+ /home/neel/IIIT/2-2/graphics/3d_game/src/arrow.h
+ /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/bomb.cpp
  /home/neel/IIIT/2-2/graphics/3d_game/src/bomb.h
@@ -45,6 +49,7 @@ CMakeFiles/graphics_asgn1.dir/src/input.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
  /home/neel/IIIT/2-2/graphics/3d_game/src/altMeter.h
+ /home/neel/IIIT/2-2/graphics/3d_game/src/arrow.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/bomb.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/bullet.h
  /home/neel/IIIT/2-2/graphics/3d_game/src/checkpoint.h

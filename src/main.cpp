@@ -16,6 +16,7 @@
 #include "volcano.h"
 #include "score.h"
 #include "para.h"
+#include "arrow.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -25,6 +26,7 @@ GLFWwindow *window;
 /**************************
 * Customizable functions *
 **************************/
+Arrow arrow;
 Plane plane;
 Ground ground;
 AltMeter altMeter1, altMeter2, altMeter3, altMeter4;
@@ -102,6 +104,7 @@ void draw() {
     indi2.draw(VP2);
     indi3.draw(VP2);
     indi4.draw(VP2);
+    arrow.draw(VP2);
     for (int i = 0; i < score.size(); i ++){
    		score[i].draw(VP2);
    	} 
@@ -278,6 +281,18 @@ void tick_input(GLFWwindow *window) {
 
 void tick_elements() {
 
+
+
+	float zdif1 = -1*cos(plane.rotationY * M_PI / 180.0f);
+	float xdif1 = -1*sin(plane.rotationY * M_PI / 180.0f);
+
+	float zdif2 = objects[cur_cp].position.z;
+	float xdif2 = objects[cur_cp].position.x;
+
+	arrow.rotationZ = acos( (xdif2*xdif1 + zdif2*zdif1)/( sqrt( zdif1*zdif1 + xdif1*xdif1 )*sqrt( zdif2*zdif2 + xdif2*xdif2 ) ) );  
+
+	printf("z dif : %.2f x dif : %.2f tan :%.2f\n",plane.position.z - objects[cur_cp].position.z, plane.position.x - objects[cur_cp].position.x, arrow.rotationZ);
+
 	char str[200];
 	sprintf(str, "Checkpints Completed : %d",cur_cp);
     glfwSetWindowTitle(window, str);
@@ -305,12 +320,12 @@ void tick_elements() {
 		indi3.position.x -= 0.01;
 	}
 	if ( indi1.position.x <= -5.5) {
-		printf("Out of Fuel\n");
-		quit(window);
+		// printf("Out of Fuel\n");
+		// quit(window);
 	}
 	if (plane.position.y <= -30) {
-		printf("Crashed\n");
-		quit(window);
+		// printf("Crashed\n");
+		// quit(window);
 	}
     plane.tick();
     switch(cam_pos){
@@ -544,7 +559,9 @@ void initGL(GLFWwindow *window, int width, int height) {
     indi2 = Indicator(-3, 4.9f, 0, COLOR_BLACK); //alt
     indi3 = Indicator(-5.5f, 4.4f, 0, COLOR_BLACK); //speed
     indi4 = Indicator(-0.5f, 3.9f, 0, COLOR_BLACK); //health
-    // fan = Fan(0 ,0 , -2.0f, COLOR_BLACK);
+
+    arrow = Arrow(5, -7, -5, COLOR_BLACK);
+
     for (int i = 0; i < 20; i ++){
     	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_ISLAND));
     }

@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/arrow.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/fuel.cpp.o"
