@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/neel/IIIT/2-2/graphics/3d_game
 CMAKE_BINARY_DIR = /home/neel/IIIT/2-2/graphics/3d_game
 
 #=============================================================================
-# Target rules for target CMakeFiles/graphics_asgn1.dir
+# Target rules for target CMakeFiles/graphics_asgn2.dir
 
 # All Build rule for target.
-CMakeFiles/graphics_asgn1.dir/all:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/depend
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 "Built target graphics_asgn1"
-.PHONY : CMakeFiles/graphics_asgn1.dir/all
+CMakeFiles/graphics_asgn2.dir/all:
+	$(MAKE) -f CMakeFiles/graphics_asgn2.dir/build.make CMakeFiles/graphics_asgn2.dir/depend
+	$(MAKE) -f CMakeFiles/graphics_asgn2.dir/build.make CMakeFiles/graphics_asgn2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 "Built target graphics_asgn2"
+.PHONY : CMakeFiles/graphics_asgn2.dir/all
 
 # Include target in all.
-all: CMakeFiles/graphics_asgn1.dir/all
+all: CMakeFiles/graphics_asgn2.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/graphics_asgn1.dir/rule: cmake_check_build_system
+CMakeFiles/graphics_asgn2.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles 24
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/graphics_asgn1.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/graphics_asgn2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/neel/IIIT/2-2/graphics/3d_game/CMakeFiles 0
-.PHONY : CMakeFiles/graphics_asgn1.dir/rule
+.PHONY : CMakeFiles/graphics_asgn2.dir/rule
 
 # Convenience name for target.
-graphics_asgn1: CMakeFiles/graphics_asgn1.dir/rule
+graphics_asgn2: CMakeFiles/graphics_asgn2.dir/rule
 
-.PHONY : graphics_asgn1
-
-# clean rule for target.
-CMakeFiles/graphics_asgn1.dir/clean:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/clean
-.PHONY : CMakeFiles/graphics_asgn1.dir/clean
+.PHONY : graphics_asgn2
 
 # clean rule for target.
-clean: CMakeFiles/graphics_asgn1.dir/clean
+CMakeFiles/graphics_asgn2.dir/clean:
+	$(MAKE) -f CMakeFiles/graphics_asgn2.dir/build.make CMakeFiles/graphics_asgn2.dir/clean
+.PHONY : CMakeFiles/graphics_asgn2.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/graphics_asgn2.dir/clean
 
 .PHONY : clean
 

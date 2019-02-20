@@ -1,11 +1,23 @@
-Graphics Boilerplate Code
+3d Fighter Plane Game
 =========================
 
-This is boilerplate code for the assignments which might be helpful.
+This is a 3d game made in OpenGL as a part of Graphics course assignment
 
+## Controls
+|  KEY | ACTION   |
+|---|---|
+| w | move forward  |
+| a  | roll left  |
+| d | roll right |
+| q | turn left |
+| e | turn left |
+| c | change camera|
+| space | rise up |
+| left click | launch missile |
+|right click | drop bomb |
+| x | exit |
+| scroll | zoom in heliCam |
+|
 
-License
--------
-The MIT License https://meghprkh.mit-license.org/
-
-Copyright &copy; 2018 Megh Parikh <meghprkh@gmail.com>
+ - there is a black arrow beside plane that will direct plane to next checkpoint
+ - once 5 checkpoint are completed the game will be finished 

@@ -93,7 +93,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=graphics_asgn1
+CMAKE_PROJECT_NAME:STATIC=graphics_asgn2
 
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -146,6 +146,12 @@ graphics_asgn1_BINARY_DIR:STATIC=/home/neel/IIIT/2-2/graphics/3d_game
 
 //Value Computed by CMake
 graphics_asgn1_SOURCE_DIR:STATIC=/home/neel/IIIT/2-2/graphics/3d_game
+
+//Value Computed by CMake
+graphics_asgn2_BINARY_DIR:STATIC=/home/neel/IIIT/2-2/graphics/3d_game
+
+//Value Computed by CMake
+graphics_asgn2_SOURCE_DIR:STATIC=/home/neel/IIIT/2-2/graphics/3d_game
 
 
 ########################

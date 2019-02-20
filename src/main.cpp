@@ -213,6 +213,21 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
     }
 }
 
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	if (cam_pos == 4){
+		if (yoffset == 1) {
+			if (heli_cam_radius1 > 1){
+				heli_cam_radius1 --;
+			}
+		}
+		else if (yoffset == -1) {
+			if (heli_cam_radius1 < 20) {
+				heli_cam_radius1 ++;
+			}
+		}
+	}
+}
 void tick_input(GLFWwindow *window) {
     int left  = glfwGetKey(window, GLFW_KEY_LEFT);
     int right = glfwGetKey(window, GLFW_KEY_RIGHT);
@@ -291,7 +306,6 @@ void tick_elements() {
 
 	arrow.rotationZ = acos( (xdif2*xdif1 + zdif2*zdif1)/( sqrt( zdif1*zdif1 + xdif1*xdif1 )*sqrt( zdif2*zdif2 + xdif2*xdif2 ) ) );  
 
-	printf("z dif : %.2f x dif : %.2f tan :%.2f\n",plane.position.z - objects[cur_cp].position.z, plane.position.x - objects[cur_cp].position.x, arrow.rotationZ);
 
 	char str[200];
 	sprintf(str, "Checkpints Completed : %d",cur_cp);
@@ -375,6 +389,7 @@ void tick_elements() {
 			cam_b = plane.position.y + heli_cam_radius1*sin(heli_ele_angle * M_PI / 180.0f);		
 			cam_c = plane.position.z + heli_cam_radius2*sin(heli_rotate_angle * M_PI / 180.0f);		
   			glfwSetCursorPosCallback(window, cursor_pos_callback);
+  			glfwSetScrollCallback(window, scroll_callback);
   			break;
     }
 
@@ -560,7 +575,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     indi3 = Indicator(-5.5f, 4.4f, 0, COLOR_BLACK); //speed
     indi4 = Indicator(-0.5f, 3.9f, 0, COLOR_BLACK); //health
 
-    arrow = Arrow(5, -7, -5, COLOR_BLACK);
+    arrow = Arrow(4, -3, 0, COLOR_BLACK);
 
     for (int i = 0; i < 20; i ++){
     	objects.push_back(Object( rand()%1000 - 500, -30,rand()%1000 - 500, COLOR_ISLAND));
